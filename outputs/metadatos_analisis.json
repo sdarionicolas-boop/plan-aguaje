@@ -1,0 +1,839 @@
+{
+  "osm_fecha_descarga": "2026-08-28T03:21:59+00:00",
+  "osm_total_edificios_crudos": 10327,
+  "osm_celdas_fallidas": [],
+  "osm_crs_origen": "EPSG:4326",
+  "osm_endpoint": "https://overpass-api.de/api/interpreter",
+  "fuente_edificios": "OpenStreetMap via Overpass API (cliente propio)",
+  "crs_trabajo": "EPSG:32721",
+  "edificios_reproyectados": 10327,
+  "hueco_area_km2": 68.0479,
+  "hueco_pct_buffer_unaj": 86.78,
+  "hueco_n_partes": 1,
+  "buffer_unaj_area_km2": 78.4137,
+  "union_competidoras_area_km2": 346.8495,
+  "hueco_geom_type": "Polygon",
+  "edificios_en_hueco_total": 1497,
+  "edificios_en_hueco_seleccionados": 1294,
+  "criterio_residencial": "todos_menos_no_residenciales",
+  "share_residencial_estricto": 0.2091,
+  "advertencia_residencial": "Solo el 20.9% de los edificios del hueco tiene un tag residencial explicito (predomina building=yes). Se usan todos los edificios excepto los tageados explicitamente como no residenciales.",
+  "factor_hab_por_edificio": 3.0,
+  "poblacion_estimada": 3882.0,
+  "densidad_edificios_por_km2": 22.0,
+  "densidad_poblacion_hab_km2": 57.0,
+  "distancias_km": [
+    {
+      "universidad": "UNAJ",
+      "rol": "objetivo",
+      "dist_centroide_km": 0.25,
+      "dist_min_al_hueco_km": 0.0
+    },
+    {
+      "universidad": "UNQUI",
+      "rol": "competidora",
+      "dist_centroide_km": 7.88,
+      "dist_min_al_hueco_km": 4.99
+    },
+    {
+      "universidad": "UNaB",
+      "rol": "competidora",
+      "dist_centroide_km": 11.34,
+      "dist_min_al_hueco_km": 6.39
+    },
+    {
+      "universidad": "UNLANUS",
+      "rol": "competidora",
+      "dist_centroide_km": 12.18,
+      "dist_min_al_hueco_km": 7.1
+    },
+    {
+      "universidad": "UNLZ",
+      "rol": "competidora",
+      "dist_centroide_km": 16.94,
+      "dist_min_al_hueco_km": 11.94
+    },
+    {
+      "universidad": "UNLP",
+      "rol": "competidora",
+      "dist_centroide_km": 34.31,
+      "dist_min_al_hueco_km": 29.42
+    }
+  ],
+  "dist_min_competidora_km": 7.88,
+  "competidora_mas_cercana": "UNQUI",
+  "dist_unaj_km": 0.25,
+  "contraste_densidad": {
+    "densidad_edificios_osm_km2": 22.0,
+    "densidad_edificios_esperada_km2": [
+      600,
+      1200
+    ],
+    "completitud_osm_pct": [
+      3.7,
+      1.8
+    ],
+    "densidad_poblacion_referencia_km2": [
+      2000,
+      7000
+    ],
+    "poblacion_contraste": [
+      136000,
+      476000
+    ],
+    "factor_subestimacion": [
+      35.0,
+      122.6
+    ],
+    "nota": "Las densidades de referencia son supuestos declarados para tejido urbano consolidado del Conurbano sur, no mediciones. El contraste sirve para acotar el orden de magnitud, no para reemplazar la estimacion del proxy."
+  },
+  "censo_2022": {
+    "n_radios_intersecan": 562,
+    "n_radios_con_dato": 562,
+    "n_radios_sin_dato": 0,
+    "n_radios_integros_en_hueco": 453,
+    "poblacion_censo_2022_areal": 554692,
+    "poblacion_censo_2022_por_centroide": 548336,
+    "area_sin_dato_km2": 0.0,
+    "cota_superior_faltantes": 0,
+    "poblacion_censo_2022_total_estimada": 554692,
+    "densidad_censal_hab_km2": 8151,
+    "partidos_involucrados": [
+      "Almirante Brown",
+      "Berazategui",
+      "Florencio Varela",
+      "Quilmes"
+    ],
+    "desglose_por_partido": [
+      {
+        "partido": "Quilmes",
+        "n_radios": 223,
+        "poblacion": 222547,
+        "area_km2": 25.24,
+        "densidad_hab_km2": 8818
+      },
+      {
+        "partido": "Florencio Varela",
+        "n_radios": 192,
+        "poblacion": 187526,
+        "area_km2": 23.94,
+        "densidad_hab_km2": 7832
+      },
+      {
+        "partido": "Berazategui",
+        "n_radios": 136,
+        "poblacion": 135500,
+        "area_km2": 17.95,
+        "densidad_hab_km2": 7550
+      },
+      {
+        "partido": "Almirante Brown",
+        "n_radios": 11,
+        "poblacion": 9119,
+        "area_km2": 0.92,
+        "densidad_hab_km2": 9905
+      }
+    ],
+    "factor_subestimacion_proxy_osm": 142.9,
+    "fuente_geometria": "INDEC, GeoNode institucional, capa geonode:radios_censales2 (WFS)",
+    "fuente_poblacion": "Boccolini, S. M. (2026). Argentina (2022) radios censales con datos de cantidad de poblacion y densidad de poblacion. CONICET Digital, CC BY 2.5 AR. Tabulacion del Censo 2022 (INDEC/Redatam).",
+    "metodo": "Interpolacion areal: poblacion del radio ponderada por la fraccion de su superficie dentro del hueco."
+  },
+  "sensibilidad_radio": {
+    "radios_evaluados_km": [
+      1,
+      1.5,
+      2,
+      2.5,
+      3,
+      3.5,
+      4,
+      4.5,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "radio_base_km": 5.0,
+    "primer_radio_con_solape_km": 4.0,
+    "radio_de_maxima_area_km": 10.0,
+    "max_area_km2": 96.2,
+    "radio_de_maxima_poblacion_km": 6.0,
+    "max_poblacion": 674001,
+    "tabla": [
+      {
+        "radio_km": 1.0,
+        "area_buffer_km2": 3.14,
+        "area_hueco_km2": 3.14,
+        "pct_exclusivo": 100.0,
+        "poblacion_hueco": 17904,
+        "poblacion_buffer": 17904,
+        "pct_poblacion_exclusiva": 100.0,
+        "n_radios_censales": 33,
+        "densidad_hab_km2": 5708,
+        "area_sin_cobertura_censal_km2": 0.0
+      },
+      {
+        "radio_km": 1.5,
+        "area_buffer_km2": 7.06,
+        "area_hueco_km2": 7.06,
+        "pct_exclusivo": 100.0,
+        "poblacion_hueco": 46314,
+        "poblacion_buffer": 46314,
+        "pct_poblacion_exclusiva": 100.0,
+        "n_radios_censales": 66,
+        "densidad_hab_km2": 6563,
+        "area_sin_cobertura_censal_km2": 0.0
+      },
+      {
+        "radio_km": 2.0,
+        "area_buffer_km2": 12.55,
+        "area_hueco_km2": 12.55,
+        "pct_exclusivo": 100.0,
+        "poblacion_hueco": 93809,
+        "poblacion_buffer": 93809,
+        "pct_poblacion_exclusiva": 100.0,
+        "n_radios_censales": 115,
+        "densidad_hab_km2": 7477,
+        "area_sin_cobertura_censal_km2": 0.0
+      },
+      {
+        "radio_km": 2.5,
+        "area_buffer_km2": 19.6,
+        "area_hueco_km2": 19.6,
+        "pct_exclusivo": 100.0,
+        "poblacion_hueco": 153725,
+        "poblacion_buffer": 153725,
+        "pct_poblacion_exclusiva": 100.0,
+        "n_radios_censales": 167,
+        "densidad_hab_km2": 7842,
+        "area_sin_cobertura_censal_km2": 0.0
+      },
+      {
+        "radio_km": 3.0,
+        "area_buffer_km2": 28.23,
+        "area_hueco_km2": 28.23,
+        "pct_exclusivo": 100.0,
+        "poblacion_hueco": 229713,
+        "poblacion_buffer": 229713,
+        "pct_poblacion_exclusiva": 100.0,
+        "n_radios_censales": 235,
+        "densidad_hab_km2": 8138,
+        "area_sin_cobertura_censal_km2": 0.0
+      },
+      {
+        "radio_km": 3.5,
+        "area_buffer_km2": 38.42,
+        "area_hueco_km2": 38.42,
+        "pct_exclusivo": 100.0,
+        "poblacion_hueco": 318839,
+        "poblacion_buffer": 318839,
+        "pct_poblacion_exclusiva": 100.0,
+        "n_radios_censales": 326,
+        "densidad_hab_km2": 8298,
+        "area_sin_cobertura_censal_km2": 0.0
+      },
+      {
+        "radio_km": 4.0,
+        "area_buffer_km2": 50.18,
+        "area_hueco_km2": 49.63,
+        "pct_exclusivo": 98.9,
+        "poblacion_hueco": 408862,
+        "poblacion_buffer": 412597,
+        "pct_poblacion_exclusiva": 99.1,
+        "n_radios_censales": 419,
+        "densidad_hab_km2": 8239,
+        "area_sin_cobertura_censal_km2": 0.0
+      },
+      {
+        "radio_km": 4.5,
+        "area_buffer_km2": 63.52,
+        "area_hueco_km2": 59.16,
+        "pct_exclusivo": 93.2,
+        "poblacion_hueco": 483125,
+        "poblacion_buffer": 510853,
+        "pct_poblacion_exclusiva": 94.6,
+        "n_radios_censales": 497,
+        "densidad_hab_km2": 8166,
+        "area_sin_cobertura_censal_km2": 0.0
+      },
+      {
+        "radio_km": 5.0,
+        "area_buffer_km2": 78.41,
+        "area_hueco_km2": 68.05,
+        "pct_exclusivo": 86.8,
+        "poblacion_hueco": 554692,
+        "poblacion_buffer": 622369,
+        "pct_poblacion_exclusiva": 89.1,
+        "n_radios_censales": 562,
+        "densidad_hab_km2": 8151,
+        "area_sin_cobertura_censal_km2": 0.0
+      },
+      {
+        "radio_km": 6.0,
+        "area_buffer_km2": 112.92,
+        "area_hueco_km2": 83.44,
+        "pct_exclusivo": 73.9,
+        "poblacion_hueco": 674001,
+        "poblacion_buffer": 900267,
+        "pct_poblacion_exclusiva": 74.9,
+        "n_radios_censales": 664,
+        "densidad_hab_km2": 8078,
+        "area_sin_cobertura_censal_km2": 0.0
+      },
+      {
+        "radio_km": 7.0,
+        "area_buffer_km2": 153.69,
+        "area_hueco_km2": 86.25,
+        "pct_exclusivo": 56.1,
+        "poblacion_hueco": 608389,
+        "poblacion_buffer": 1152342,
+        "pct_poblacion_exclusiva": 52.8,
+        "n_radios_censales": 612,
+        "densidad_hab_km2": 7054,
+        "area_sin_cobertura_censal_km2": 0.0
+      },
+      {
+        "radio_km": 8.0,
+        "area_buffer_km2": 200.74,
+        "area_hueco_km2": 88.64,
+        "pct_exclusivo": 44.2,
+        "poblacion_hueco": 559894,
+        "poblacion_buffer": 1414573,
+        "pct_poblacion_exclusiva": 39.6,
+        "n_radios_censales": 564,
+        "densidad_hab_km2": 6316,
+        "area_sin_cobertura_censal_km2": 0.373
+      },
+      {
+        "radio_km": 9.0,
+        "area_buffer_km2": 254.06,
+        "area_hueco_km2": 92.19,
+        "pct_exclusivo": 36.3,
+        "poblacion_hueco": 485599,
+        "poblacion_buffer": 1608042,
+        "pct_poblacion_exclusiva": 30.2,
+        "n_radios_censales": 469,
+        "densidad_hab_km2": 5267,
+        "area_sin_cobertura_censal_km2": 1.084
+      },
+      {
+        "radio_km": 10.0,
+        "area_buffer_km2": 313.65,
+        "area_hueco_km2": 96.2,
+        "pct_exclusivo": 30.7,
+        "poblacion_hueco": 411833,
+        "poblacion_buffer": 1763656,
+        "pct_poblacion_exclusiva": 23.4,
+        "n_radios_censales": 401,
+        "densidad_hab_km2": 4281,
+        "area_sin_cobertura_censal_km2": 1.344
+      }
+    ],
+    "nota": "La poblacion sale del cruce con radios censales 2022 por interpolacion areal, el mismo metodo de la fase 11."
+  },
+  "isocronas_red": {
+    "radio_m": 5000,
+    "acceso_desde_eje_m": 150.0,
+    "highway_excluidos": [
+      "bus_guideway",
+      "construction",
+      "escape",
+      "motorway",
+      "motorway_link",
+      "planned",
+      "proposed",
+      "raceway",
+      "trunk",
+      "trunk_link"
+    ],
+    "n_nodos_grafo": 186682,
+    "n_aristas_grafo": 243298,
+    "areas_de_servicio": [
+      {
+        "universidad": "UNAJ",
+        "area_red_km2": 54.58,
+        "area_euclidiana_km2": 78.41,
+        "cobertura_pct": 69.6,
+        "nodos_alcanzables": 12584,
+        "snap_m": 12.6
+      },
+      {
+        "universidad": "UNQUI",
+        "area_red_km2": 41.17,
+        "area_euclidiana_km2": 78.41,
+        "cobertura_pct": 52.5,
+        "nodos_alcanzables": 12149,
+        "snap_m": 77.6
+      },
+      {
+        "universidad": "UNLP",
+        "area_red_km2": 49.23,
+        "area_euclidiana_km2": 78.41,
+        "cobertura_pct": 62.8,
+        "nodos_alcanzables": 11245,
+        "snap_m": 69.3
+      },
+      {
+        "universidad": "UNLZ",
+        "area_red_km2": 48.21,
+        "area_euclidiana_km2": 78.41,
+        "cobertura_pct": 61.5,
+        "nodos_alcanzables": 9523,
+        "snap_m": 40.3
+      },
+      {
+        "universidad": "UNaB",
+        "area_red_km2": 62.08,
+        "area_euclidiana_km2": 78.41,
+        "cobertura_pct": 79.2,
+        "nodos_alcanzables": 13235,
+        "snap_m": 3.7
+      },
+      {
+        "universidad": "UNLANUS",
+        "area_red_km2": 59.8,
+        "area_euclidiana_km2": 78.41,
+        "cobertura_pct": 76.3,
+        "nodos_alcanzables": 11635,
+        "snap_m": 38.0
+      }
+    ],
+    "hueco_red_area_km2": 54.58,
+    "hueco_red_poblacion": 444604,
+    "hueco_red_n_radios": 460,
+    "hueco_red_densidad_hab_km2": 8146,
+    "hueco_euclidiano_area_km2": 68.0479,
+    "hueco_euclidiano_poblacion": 554692,
+    "ratio_area_red_vs_euclidiano": 0.802,
+    "ratio_poblacion_red_vs_euclidiano": 0.802,
+    "metodo": "Area de servicio = union de las aristas alcanzables con recorrido <= 5.000 m sobre la red vial de OSM, con un buffer de acceso de 150 m desde el eje de calle. Grafo no dirigido (no se aplican sentidos unicos: el analisis representa acceso peatonal y de transporte publico)."
+  },
+  "universo_educativo": {
+    "n_candidatos_amba_total": 763,
+    "n_candidatos_nacionales_nuevos": 27,
+    "n_sedes_secundarias_de_universidades_ya_incluidas": 2,
+    "n_instituciones_genuinamente_nuevas": 25,
+    "n_que_alcanzan_el_hueco": 0,
+    "distancia_minima_al_hueco_km": 5.88,
+    "candidata_mas_cercana": "Universidad Tecnológica Nacional - Facultad Regional Avellaneda",
+    "metodo": "Se descargaron todas las sedes amenity=university de OSM en el AMBA completo, se filtraron por patrones de gestion nacional y se excluyeron las 6 ya incluidas en el analisis por proximidad espacial (<= 500 m).",
+    "candidatos": [
+      {
+        "nombre_osm": "Universidad Tecnológica Nacional - Facultad Regional Avellaneda",
+        "lat": -34.6934605,
+        "lon": -58.3259783,
+        "osm_type": "way",
+        "osm_id": 100397072,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 5.88,
+        "dist_hueco_red_km": 6.09,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Campus Universidad Nacional de Almirante Brown",
+        "lat": -34.8392628,
+        "lon": -58.385707,
+        "osm_type": "way",
+        "osm_id": 203322589,
+        "mismo_campus_que": "UNaB (sede secundaria, Campus Almirante Brown)",
+        "dist_hueco_km": 7.96,
+        "dist_hueco_red_km": 8.28,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Predio Yrigoyen Universidad Nacional de Lanús",
+        "lat": -34.720885,
+        "lon": -58.3935683,
+        "osm_type": "way",
+        "osm_id": 376709141,
+        "mismo_campus_que": "UNLaNUS (sede secundaria, Predio Yrigoyen)",
+        "dist_hueco_km": 7.99,
+        "dist_hueco_red_km": 8.44,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad de Buenos Aires - Centro Universitario Regional Sur",
+        "lat": -34.676903,
+        "lon": -58.363941,
+        "osm_type": "way",
+        "osm_id": 162154215,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 9.08,
+        "dist_hueco_red_km": 9.56,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "UTN Facultad Regional Avellaneda",
+        "lat": -34.6623821,
+        "lon": -58.3645907,
+        "osm_type": "node",
+        "osm_id": 909703008,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 10.47,
+        "dist_hueco_red_km": 10.88,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional de Avellaneda",
+        "lat": -34.6635677,
+        "lon": -58.3715784,
+        "osm_type": "way",
+        "osm_id": 226138237,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 10.69,
+        "dist_hueco_red_km": 11.15,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional de Avellaneda",
+        "lat": -34.6686596,
+        "lon": -58.398375,
+        "osm_type": "way",
+        "osm_id": 242409689,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 11.8,
+        "dist_hueco_red_km": 12.27,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional de Tres de Febrero",
+        "lat": -34.6073004,
+        "lon": -58.3763387,
+        "osm_type": "node",
+        "osm_id": 11171873915,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 16.44,
+        "dist_hueco_red_km": 16.7,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Tecnológica Nacional - FRBA - Campus",
+        "lat": -34.6600098,
+        "lon": -58.4669954,
+        "osm_type": "way",
+        "osm_id": 23634306,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 17.26,
+        "dist_hueco_red_km": 17.65,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad de Buenos Aires",
+        "lat": -34.6008115,
+        "lon": -58.4083766,
+        "osm_type": "way",
+        "osm_id": 871659713,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 18.39,
+        "dist_hueco_red_km": 18.78,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional de las Artes",
+        "lat": -34.5947409,
+        "lon": -58.3995685,
+        "osm_type": "way",
+        "osm_id": 1020790830,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 18.6,
+        "dist_hueco_red_km": 18.93,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Tecnológica Nacional - FRBA",
+        "lat": -34.5986748,
+        "lon": -58.4199474,
+        "osm_type": "way",
+        "osm_id": 23634263,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 19.15,
+        "dist_hueco_red_km": 19.58,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Instituto Nacional Superior del Profesorado Técnico - UTN",
+        "lat": -34.5842744,
+        "lon": -58.4668451,
+        "osm_type": "way",
+        "osm_id": 340469394,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 22.97,
+        "dist_hueco_red_km": 23.48,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional de La Matanza",
+        "lat": -34.6675836,
+        "lon": -58.5663081,
+        "osm_type": "way",
+        "osm_id": 28901628,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 24.83,
+        "dist_hueco_red_km": 25.32,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "UTN Haedo",
+        "lat": -34.6404419,
+        "lon": -58.6020221,
+        "osm_type": "way",
+        "osm_id": 186583571,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 29.07,
+        "dist_hueco_red_km": 29.52,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Tecnologica Nacional Facultad Regional La Plata",
+        "lat": -34.9044135,
+        "lon": -57.9261098,
+        "osm_type": "way",
+        "osm_id": 292215288,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 29.38,
+        "dist_hueco_red_km": 29.69,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional de Tres de Febrero",
+        "lat": -34.6037625,
+        "lon": -58.5934163,
+        "osm_type": "way",
+        "osm_id": 1530384710,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 30.37,
+        "dist_hueco_red_km": 30.76,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional de Hurlingham",
+        "lat": -34.6183018,
+        "lon": -58.6377732,
+        "osm_type": "node",
+        "osm_id": 4595121489,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 33.1,
+        "dist_hueco_red_km": 33.53,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional Raúl Scalabrini Ortiz San Isidro",
+        "lat": -34.5001936,
+        "lon": -58.5452185,
+        "osm_type": "way",
+        "osm_id": 461995907,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 34.74,
+        "dist_hueco_red_km": 35.25,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional del Oeste",
+        "lat": -34.6650323,
+        "lon": -58.6993488,
+        "osm_type": "node",
+        "osm_id": 2211572295,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 36.37,
+        "dist_hueco_red_km": 37.0,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional del Oeste",
+        "lat": -34.6747717,
+        "lon": -58.7263714,
+        "osm_type": "way",
+        "osm_id": 694609286,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 38.46,
+        "dist_hueco_red_km": 39.14,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Campus Universidad Nacional del Oeste",
+        "lat": -34.6719644,
+        "lon": -58.7444658,
+        "osm_type": "way",
+        "osm_id": 1096834883,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 40.14,
+        "dist_hueco_red_km": 40.83,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "C. Regional San Miguel Universidad Nacional de Luján",
+        "lat": -34.5457701,
+        "lon": -58.7152503,
+        "osm_type": "node",
+        "osm_id": 2684583325,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 43.26,
+        "dist_hueco_red_km": 43.65,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional de Moreno",
+        "lat": -34.6511715,
+        "lon": -58.7757849,
+        "osm_type": "way",
+        "osm_id": 93552274,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 43.52,
+        "dist_hueco_red_km": 44.16,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional de General Sarmiento",
+        "lat": -34.5220875,
+        "lon": -58.7000433,
+        "osm_type": "way",
+        "osm_id": 238463533,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 43.55,
+        "dist_hueco_red_km": 43.94,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional de José Clemente Paz",
+        "lat": -34.5211198,
+        "lon": -58.7454159,
+        "osm_type": "way",
+        "osm_id": 291411192,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 47.06,
+        "dist_hueco_red_km": 47.45,
+        "alcanza_el_hueco": false
+      },
+      {
+        "nombre_osm": "Universidad Nacional del Pilar",
+        "lat": -34.4360517,
+        "lon": -58.8866106,
+        "osm_type": "way",
+        "osm_id": 252079052,
+        "mismo_campus_que": NaN,
+        "dist_hueco_km": 63.08,
+        "dist_hueco_red_km": 63.47,
+        "alcanza_el_hueco": false
+      }
+    ],
+    "isfd_en_la_zona": [
+      {
+        "nombre": "ISFD N° 50",
+        "partido": "Berazategui/Quilmes/Fcio. Varela",
+        "nota": "en el punto triple de los tres partidos"
+      },
+      {
+        "nombre": "ISFD N° 54",
+        "partido": "Florencio Varela"
+      },
+      {
+        "nombre": "ISFD N° 104",
+        "partido": "Quilmes"
+      },
+      {
+        "nombre": "ISFDyT N° 24 \"Dr. B. A. Houssay\"",
+        "partido": "Quilmes (Bernal)"
+      },
+      {
+        "nombre": "ISFDyT N° 83",
+        "partido": "Quilmes"
+      }
+    ],
+    "fuente_isfd": "Dirección General de Cultura y Educación de la Pcia. de Buenos Aires (abc.gob.ar), Dirección de Formación Docente y Dirección Provincial de Educación Superior. Relevamiento manual, no georreferenciado ni exhaustivo -- ver advertencia.",
+    "advertencia_isfd": "Relevamiento manual de institutos terciarios provinciales, no georreferenciado ni necesariamente exhaustivo. No son universidades ni de gestion nacional: se documentan aparte para no mezclar categorias de oferta."
+  },
+  "renabap": {
+    "n_barrios_en_hueco": 42,
+    "n_barrios_integros": 30,
+    "n_familias_en_hueco": 10041,
+    "poblacion_renabap_en_hueco": 30123,
+    "factor_personas_por_familia": 3.0,
+    "pct_poblacion_censal_en_renabap": 5.4,
+    "area_renabap_en_hueco_km2": 2.68,
+    "electricidad_formal_pct": {
+      "pct_barrios": 16.7,
+      "pct_familias": 5.9
+    },
+    "agua_formal_pct": {
+      "pct_barrios": 14.3,
+      "pct_familias": 15.2
+    },
+    "cloaca_formal_pct": {
+      "pct_barrios": 2.4,
+      "pct_familias": 12.9
+    },
+    "partidos": [
+      "Berazategui",
+      "Florencio Varela",
+      "Quilmes"
+    ]
+  },
+  "validacion_externa": {
+    "poblacion_vs_indec": {
+      "filas": [
+        {
+          "partido": "Florencio Varela",
+          "nuestra_fuente": 485105,
+          "indec_oficial": 496433,
+          "diferencia_pct": -2.28
+        },
+        {
+          "partido": "Quilmes",
+          "nuestra_fuente": 631551,
+          "indec_oficial": 633191,
+          "diferencia_pct": -0.26
+        },
+        {
+          "partido": "Berazategui",
+          "nuestra_fuente": 355277,
+          "indec_oficial": 358712,
+          "diferencia_pct": -0.96
+        }
+      ],
+      "diferencia_min_pct": -2.28,
+      "diferencia_max_pct": -0.26,
+      "siempre_por_debajo": true,
+      "fuente": "INDEC, Censo 2022, resultados definitivos (nov. 2023), via Wikipedia (partidos de Florencio Varela, Quilmes y Berazategui) y atlasconurbano.info"
+    },
+    "renabap_vigencia": {
+      "barrios_2020": 4416,
+      "barrios_actual": 6467,
+      "crecimiento_pct": 46.4,
+      "fuente": "Argentina.gob.ar/desarrollosocial/renabap (relevamiento 2020 vs. registro actual)"
+    },
+    "matricula_real": {
+      "filas": [
+        {
+          "partido": "Florencio Varela",
+          "pct_matricula_real": 33.0,
+          "pct_poblacion_hueco": 33.8,
+          "diferencia_pp": 0.8
+        },
+        {
+          "partido": "Berazategui",
+          "pct_matricula_real": 22.0,
+          "pct_poblacion_hueco": 24.4,
+          "diferencia_pp": 2.4
+        },
+        {
+          "partido": "Almirante Brown",
+          "pct_matricula_real": 8.0,
+          "pct_poblacion_hueco": 1.6,
+          "diferencia_pp": -6.4
+        },
+        {
+          "partido": "Quilmes",
+          "pct_matricula_real": 22.0,
+          "pct_poblacion_hueco": 40.1,
+          "diferencia_pp": 18.1
+        }
+      ],
+      "mejor_ajuste": "Florencio Varela",
+      "peor_ajuste": "Quilmes",
+      "fuente": "unaj.edu.ar, nota institucional por el 10 aniversario de la universidad (procedencia de estudiantes por partido)"
+    }
+  }
+}

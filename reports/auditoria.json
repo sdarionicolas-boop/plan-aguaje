@@ -1,0 +1,342 @@
+{
+  "fecha": "2026-08-28T16:28:16",
+  "veredicto": "APROBADO",
+  "conteo": {
+    "INFO": 51,
+    "WARNING": 4,
+    "ERROR": 0,
+    "CRITICAL": 0
+  },
+  "hallazgos": [
+    {
+      "nivel": "INFO",
+      "chequeo": "crs_correcto",
+      "detalle": "buffers: CRS EPSG:32721 (proyectado, metros)",
+      "valor": "EPSG:32721"
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "crs_correcto",
+      "detalle": "hueco_exclusivo: CRS EPSG:32721 (proyectado, metros)",
+      "valor": "EPSG:32721"
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "crs_correcto",
+      "detalle": "edificios_en_hueco: CRS EPSG:32721 (proyectado, metros)",
+      "valor": "EPSG:32721"
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "crs_correcto",
+      "detalle": "edificios_utm: CRS EPSG:32721 (proyectado, metros)",
+      "valor": "EPSG:32721"
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "crs_correcto",
+      "detalle": "universidades: CRS EPSG:32721 (proyectado, metros)",
+      "valor": "EPSG:32721"
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "n_buffers",
+      "detalle": "6 buffers presentes",
+      "valor": 6
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "area_buffer",
+      "detalle": "Areas de buffer coherentes con pi*r^2 = 78.54 km2 (discretizacion del circulo < 1%)",
+      "valor": 78.53981633974482
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "area_hueco_positiva",
+      "detalle": "Area del hueco = 68.05 km2 (> 0)",
+      "valor": 68.04792056853823
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "hueco_menor_que_buffer",
+      "detalle": "El hueco (68.05 km2) representa 86.8% del buffer UNAJ (78.41 km2)",
+      "valor": 86.78
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "validez_hueco",
+      "detalle": "Geometria del hueco valida (Polygon)",
+      "valor": "Polygon"
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "recalculo_resta",
+      "detalle": "Resta topologica reproducida de forma independiente: 68.0479 km2",
+      "valor": 68.04792056853823
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "hueco_sin_solape",
+      "detalle": "El hueco no solapa con ningun buffer competidor",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "hueco_dentro_unaj",
+      "detalle": "El hueco esta contenido dentro del buffer de la UNAJ",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "edificios_en_hueco",
+      "detalle": "1,294 edificios seleccionados dentro del hueco sobre 10,327 descargados (12.5%)",
+      "valor": 1294
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "edificios_dentro_del_hueco",
+      "detalle": "Los 1,294 edificios verificados caen dentro del hueco",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "poblacion_no_negativa",
+      "detalle": "Poblacion estimada = 3,882 hab (>= 0)",
+      "valor": 3882.0
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "poblacion_recalculada",
+      "detalle": "Poblacion reproducida: 1,294 x 3.0 = 3,882 hab",
+      "valor": null
+    },
+    {
+      "nivel": "WARNING",
+      "chequeo": "densidad_plausible",
+      "detalle": "Densidad muy baja para un area urbana: 57 hab/km2",
+      "valor": 57.0480327329037
+    },
+    {
+      "nivel": "WARNING",
+      "chequeo": "proxy_residencial",
+      "detalle": "Solo el 20.9% de los edificios del hueco tiene un tag residencial explicito (predomina building=yes). Se usan todos los edificios excepto los tageados explicitamente como no residenciales.",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "crs_correcto",
+      "detalle": "radios_censo_en_hueco: CRS EPSG:32721 (proyectado, metros)",
+      "valor": "EPSG:32721"
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "radios_sin_duplicar",
+      "detalle": "562 radios censales, sin codigos duplicados",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "cobertura_censal",
+      "detalle": "Los radios censales cubren integramente el hueco (68.05 km2 de 68.05 km2)",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "consistencia_metodos_censales",
+      "detalle": "Dos metodos independientes coinciden: interpolacion areal 554,692 hab vs centroide 548,336 hab (1.1% de diferencia)",
+      "valor": 0.0115
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "recalculo_poblacion_censal",
+      "detalle": "Interpolacion areal reproducida de forma independiente: 554,692 hab",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "fracciones_validas",
+      "detalle": "Todas las fracciones de area estan en (0, 1]; 453 radios quedan integros dentro del hueco",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "densidad_censal_plausible",
+      "detalle": "Densidad censal 8,151 hab/km2, coherente con el tejido urbano del sur del Conurbano",
+      "valor": 8151
+    },
+    {
+      "nivel": "WARNING",
+      "chequeo": "proxy_osm_invalidado",
+      "detalle": "El proxy de edificios OSM (3,882 hab) subestima el dato censal (554,692 hab) por un factor de 142.9. El proxy NO debe usarse para dimensionar poblacion en esta zona.",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "sensibilidad_consistente",
+      "detalle": "La curva de sensibilidad reproduce el analisis principal en r=5.0 km (68.05 km2)",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "sensibilidad_monotonia",
+      "detalle": "El area del buffer crece de forma monotona con el radio (14 radios evaluados)",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "sensibilidad_hueco_acotado",
+      "detalle": "En todos los radios el hueco es menor o igual que su buffer",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "radio_sin_competencia",
+      "detalle": "Hasta r < 4.0 km la cobertura de la UNAJ es 100% exclusiva",
+      "valor": 4.0
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "crs_correcto",
+      "detalle": "areas_servicio_red: CRS EPSG:32721 (proyectado, metros)",
+      "valor": "EPSG:32721"
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "crs_correcto",
+      "detalle": "hueco_exclusivo_UNAJ_red: CRS EPSG:32721 (proyectado, metros)",
+      "valor": "EPSG:32721"
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "area_servicio_acotada",
+      "detalle": "Las 6 areas de servicio caben dentro de su circulo de 5 km mas los 150 m de acceso, como exige el metodo",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "hueco_red_acotado",
+      "detalle": "El hueco por red (54.58 km2) es el 100.0% del area de servicio de la UNAJ",
+      "valor": 100.0
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "red_menor_que_euclidiano",
+      "detalle": "El hueco por red (54.58 km2) es menor que el euclidiano (68.05 km2), como corresponde",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "poblacion_red_positiva",
+      "detalle": "Poblacion del hueco por red: 444,604 hab (8,146 hab/km2)",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "sobreestimacion_del_circulo",
+      "detalle": "El buffer euclidiano sobreestima la cobertura real: las areas de servicio van del 52.5% al 79.2% del circulo",
+      "valor": 67.0
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "universo_muestra_amplia",
+      "detalle": "763 sedes universitarias/college relevadas en OSM en todo el AMBA antes de filtrar",
+      "valor": 763
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "universo_no_amenaza_exclusividad",
+      "detalle": "Ninguna de las 27 sedes nacionales adicionales alcanza el hueco; la mas cercana esta a 5.88 km de su borde (> 5 km)",
+      "valor": 5.88
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "crs_correcto",
+      "detalle": "universo_universidades_amba: CRS EPSG:32721 (proyectado, metros)",
+      "valor": "EPSG:32721"
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "universo_recalculo",
+      "detalle": "Distancia minima al hueco reproducida de forma independiente: 5.88 km",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "universo_duplicados_documentados",
+      "detalle": "2 candidatos identificados como sedes secundarias de universidades ya incluidas, no como competidoras nuevas",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "oferta_terciaria_documentada",
+      "detalle": "5 institutos terciarios provinciales documentados dentro de la zona (no universitarios, no de gestion nacional)",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "crs_correcto",
+      "detalle": "renabap_en_hueco: CRS EPSG:32721 (proyectado, metros)",
+      "valor": "EPSG:32721"
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "renabap_geometrias_validas",
+      "detalle": "Los 42 poligonos de barrios populares tienen area > 0",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "renabap_area_acotada",
+      "detalle": "El area de barrios populares (2.68 km2) es coherente, menor que el hueco (68.05 km2)",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "renabap_recalculo",
+      "detalle": "Poblacion en barrios populares reproducida de forma independiente: 30,123 hab",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "renabap_pct_valido",
+      "detalle": "5.4% de la poblacion censal del hueco vive en barrios populares relevados",
+      "valor": 5.4
+    },
+    {
+      "nivel": "WARNING",
+      "chequeo": "renabap_infraestructura_precaria",
+      "detalle": "Solo el 12.9% de las familias en barrios populares del hueco tiene conexion formal a cloaca (agua: 15.2%, electricidad: 5.9%)",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "validacion_censal_consistente",
+      "detalle": "Cruce censal vs. INDEC oficial: 3 partidos, diferencia entre -2.28% y -0.26% (siempre por debajo: True)",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "validacion_renabap_recalculo",
+      "detalle": "RENABAP: 4,416 barrios (2020) -> 6,467 actuales (+46.4%), reproducido de forma independiente",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "validacion_matricula_coherente",
+      "detalle": "Matricula real de la UNAJ por partido documentada para 4 partidos, suma 85.0% (resto: otras regiones)",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "validacion_matricula_comparacion",
+      "detalle": "Mejor ajuste hueco vs. matricula real: Florencio Varela. Peor ajuste: Quilmes",
+      "valor": null
+    },
+    {
+      "nivel": "INFO",
+      "chequeo": "input_inmutable",
+      "detalle": "data/input contiene unicamente el raw de OSM (regla respetada)",
+      "valor": null
+    }
+  ]
+}

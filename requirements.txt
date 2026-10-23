@@ -1,0 +1,15 @@
+# Proyecto "Hueco Educativo UNAJ"
+# Congelado contra el entorno en que se corrio el analisis (Python 3.14.0,
+# Windows). Instalar con: pip install -r requirements.txt
+
+geopandas==1.1.3
+shapely==2.1.2
+pandas==2.3.3
+numpy==2.4.3
+matplotlib==3.10.8
+pyproj==3.7.2
+pyogrio==0.12.1
+networkx==3.6.1
+scipy==1.17.1
+requests==2.33.0
+mapclassify==2.11.0

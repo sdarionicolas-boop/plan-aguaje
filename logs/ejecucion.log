@@ -1,0 +1,335 @@
+[21:03:24] [INFO] Area de descarga (union de 6 buffers): 414.90 km2
+[21:03:30] [INFO] Tile 1/36: fuera del area, se omite
+[21:03:30] [INFO] Tile 2/36: fuera del area, se omite
+[21:03:34] [INFO] Tile 3/36: 204 features (4s)
+[21:03:38] [INFO] Tile 4/36: 1424 features (4s)
+[21:03:47] [INFO] Tile 5/36: 562 features (9s)
+[21:03:50] [INFO] Tile 6/36: 128 features (3s)
+[21:03:50] [INFO] Tile 7/36: fuera del area, se omite
+[21:03:50] [INFO] Tile 8/36: fuera del area, se omite
+[21:03:53] [INFO] Tile 9/36: 353 features (3s)
+[21:03:56] [INFO] Tile 10/36: 526 features (3s)
+[21:03:59] [INFO] Tile 11/36: 841 features (3s)
+[21:04:03] [INFO] Tile 12/36: 599 features (4s)
+[21:04:03] [INFO] Tile 13/36: fuera del area, se omite
+[21:04:03] [INFO] Tile 14/36: fuera del area, se omite
+[21:04:05] [INFO] Tile 15/36: 108 features (2s)
+[21:04:10] [INFO] Tile 16/36: 1128 features (5s)
+[21:05:52] [WARNING] Tile 17/36 intento 1 fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='ove
+[21:07:44] [WARNING] Tile 17/36 intento 2 fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='ove
+[21:09:46] [WARNING] Tile 17/36 intento 3 fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='ove
+[21:11:28] [WARNING] Tile 18/36 intento 1 fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='ove
+[21:13:21] [WARNING] Tile 18/36 intento 2 fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='ove
+[21:15:23] [WARNING] Tile 18/36 intento 3 fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='ove
+[21:15:23] [INFO] Tile 19/36: fuera del area, se omite
+[21:15:23] [INFO] Tile 20/36: fuera del area, se omite
+[21:15:23] [INFO] Tile 21/36: fuera del area, se omite
+[21:15:23] [INFO] Tile 22/36: fuera del area, se omite
+[21:15:23] [INFO] Tile 23/36: fuera del area, se omite
+[21:15:23] [INFO] Tile 24/36: fuera del area, se omite
+[21:17:05] [WARNING] Tile 25/36 intento 1 fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='ove
+[21:17:51] [INFO] Area de descarga (union de 6 buffers): 414.90 km2
+[21:17:53] [INFO] Tile 1/36: fuera del area, se omite
+[21:17:53] [INFO] Tile 2/36: fuera del area, se omite
+[21:17:53] [INFO] Tile 3/36: 204 features (0s) via overpass-api.de
+[21:17:53] [INFO] Tile 4/36: 1424 features (0s) via overpass-api.de
+[21:17:53] [INFO] Tile 5/36: 562 features (0s) via overpass-api.de
+[21:17:53] [INFO] Tile 6/36: 128 features (0s) via overpass-api.de
+[21:17:53] [INFO] Tile 7/36: fuera del area, se omite
+[21:17:53] [INFO] Tile 8/36: fuera del area, se omite
+[21:17:53] [INFO] Tile 9/36: 353 features (0s) via overpass-api.de
+[21:17:54] [INFO] Tile 10/36: 526 features (0s) via overpass-api.de
+[21:17:54] [INFO] Tile 11/36: 841 features (0s) via overpass-api.de
+[21:17:54] [INFO] Tile 12/36: 599 features (0s) via overpass-api.de
+[21:17:54] [INFO] Tile 13/36: fuera del area, se omite
+[21:17:54] [INFO] Tile 14/36: fuera del area, se omite
+[21:17:54] [INFO] Tile 15/36: 108 features (0s) via overpass-api.de
+[21:17:54] [INFO] Tile 16/36: 1128 features (0s) via overpass-api.de
+[21:19:36] [WARNING] Tile 17/36 intento 1 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused
+[21:34:19] [WARNING] Tile 17/36 intento 2 (overpass.kumi.systems) fallo: 'overpass.kumi.systems' responded: 502 Bad Gateway 
+[21:36:08] [WARNING] Tile 17/36 intento 3 (overpass.private.coffee) fallo: 'overpass.private.coffee' responded: 500 Internal Server Error Internal Server Error
+[21:37:15] [WARNING] Tile 17/36 intento 4 (overpass.osm.jp) fallo: HTTPSConnectionPool(host='overpass.osm.jp', port=443): Max retries exceeded with url: /api/interpreter (Caused
+[21:39:02] [WARNING] Tile 17/36 intento 5 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused
+[21:41:26] [WARNING] Tile 17/36 intento 6 (overpass.kumi.systems) fallo: 'overpass.kumi.systems' responded: 500 Internal Server Error Internal Server Error
+[21:45:05] [WARNING] Tile 17/36 intento 7 (overpass.private.coffee) fallo: 'overpass.private.coffee' responded: 500 Internal Server Error Internal Server Error
+[21:46:12] [WARNING] Tile 17/36 intento 8 (overpass.osm.jp) fallo: HTTPSConnectionPool(host='overpass.osm.jp', port=443): Max retries exceeded with url: /api/interpreter (Caused
+[21:47:59] [WARNING] Tile 18/36 intento 1 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused
+[21:51:34] [WARNING] Tile 18/36 intento 2 (overpass.kumi.systems) fallo: 'overpass.kumi.systems' responded: 500 Internal Server Error Internal Server Error
+[21:53:56] [WARNING] Tile 18/36 intento 3 (overpass.private.coffee) fallo: 'overpass.private.coffee' responded: 500 Internal Server Error Internal Server Error
+[21:55:03] [WARNING] Tile 18/36 intento 4 (overpass.osm.jp) fallo: HTTPSConnectionPool(host='overpass.osm.jp', port=443): Max retries exceeded with url: /api/interpreter (Caused
+[21:56:51] [WARNING] Tile 18/36 intento 5 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused
+[21:58:36] [WARNING] Tile 18/36 intento 6 (overpass.kumi.systems) fallo: 'overpass.kumi.systems' responded: 502 Bad Gateway 
+[22:00:49] [WARNING] Tile 18/36 intento 7 (overpass.private.coffee) fallo: 'overpass.private.coffee' responded: 500 Internal Server Error Internal Server Error
+[22:01:56] [WARNING] Tile 18/36 intento 8 (overpass.osm.jp) fallo: HTTPSConnectionPool(host='overpass.osm.jp', port=443): Max retries exceeded with url: /api/interpreter (Caused
+[22:02:01] [INFO] Tile 19/36: fuera del area, se omite
+[22:02:01] [INFO] Tile 20/36: fuera del area, se omite
+[22:02:01] [INFO] Tile 21/36: fuera del area, se omite
+[22:02:01] [INFO] Tile 22/36: fuera del area, se omite
+[22:02:01] [INFO] Tile 23/36: fuera del area, se omite
+[22:02:01] [INFO] Tile 24/36: fuera del area, se omite
+[22:03:43] [WARNING] Tile 25/36 intento 1 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused
+[22:06:08] [WARNING] Tile 25/36 intento 2 (overpass.kumi.systems) fallo: 'overpass.kumi.systems' responded: 500 Internal Server Error Internal Server Error
+[22:08:56] [WARNING] Tile 25/36 intento 3 (overpass.private.coffee) fallo: 'overpass.private.coffee' responded: 500 Internal Server Error Internal Server Error
+[22:10:03] [WARNING] Tile 25/36 intento 4 (overpass.osm.jp) fallo: HTTPSConnectionPool(host='overpass.osm.jp', port=443): Max retries exceeded with url: /api/interpreter (Caused
+[22:11:50] [WARNING] Tile 25/36 intento 5 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused
+[22:13:50] [WARNING] Tile 25/36 intento 6 (overpass.kumi.systems) fallo: 'overpass.kumi.systems' responded: 502 Bad Gateway 
+[22:18:54] [INFO] Area de descarga (union de 6 buffers): 414.90 km2
+[22:20:38] [WARNING] Celda 3 intento 1 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:18:46] [WARNING] Celda 3 intento 2 (overpass.kumi.systems) fallo: 'overpass.kumi.systems' responded: 500 Internal Server Error Internal Server Error
+[23:19:28] [INFO] Area de descarga (union de 6 buffers): 414.90 km2
+[23:20:04] [INFO] Area de descarga (union de 6 buffers): 414.90 km2
+[23:21:48] [WARNING] Celda 3 intento 1 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:28:57] [INFO] Area de descarga (union de 6 buffers): 414.90 km2
+[23:30:41] [WARNING] Celda 3 intento 1 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:32:38] [WARNING] Celda 3 intento 2 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:34:50] [WARNING] Celda 3 intento 3 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:35:35] [INFO] Celda 3: se subdivide en 4 (profundidad 1)
+[23:37:17] [WARNING] Celda 3.2 intento 1 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:39:15] [WARNING] Celda 3.2 intento 2 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:41:27] [WARNING] Celda 3.2 intento 3 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:42:12] [INFO] Celda 3.2: se subdivide en 4 (profundidad 2)
+[23:43:54] [WARNING] Celda 3.2.1 intento 1 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:45:51] [WARNING] Celda 3.2.1 intento 2 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:48:03] [WARNING] Celda 3.2.1 intento 3 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:48:48] [INFO] Celda 3.2.1: se subdivide en 4 (profundidad 3)
+[23:50:30] [WARNING] Celda 3.2.1.1 intento 1 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:52:27] [WARNING] Celda 3.2.1.1 intento 2 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:54:40] [WARNING] Celda 3.2.1.1 intento 3 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:55:25] [ERROR] Celda 3.2.1.1: agotados los reintentos y la profundidad maxima
+[23:57:07] [WARNING] Celda 3.2.1.2 intento 1 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[23:59:04] [WARNING] Celda 3.2.1.2 intento 2 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[00:01:16] [WARNING] Celda 3.2.1.2 intento 3 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[00:02:01] [ERROR] Celda 3.2.1.2: agotados los reintentos y la profundidad maxima
+[00:03:43] [WARNING] Celda 3.2.1.3 intento 1 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[00:05:40] [WARNING] Celda 3.2.1.3 intento 2 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[00:07:52] [WARNING] Celda 3.2.1.3 intento 3 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[00:08:37] [ERROR] Celda 3.2.1.3: agotados los reintentos y la profundidad maxima
+[00:10:20] [WARNING] Celda 3.2.1.4 intento 1 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[00:12:17] [WARNING] Celda 3.2.1.4 intento 2 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[00:14:29] [WARNING] Celda 3.2.1.4 intento 3 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[00:15:14] [ERROR] Celda 3.2.1.4: agotados los reintentos y la profundidad maxima
+[00:16:56] [WARNING] Celda 3.2.2 intento 1 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[00:18:53] [WARNING] Celda 3.2.2 intento 2 (overpass-api.de) fallo: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api
+[00:21:17] [INFO] Area de descarga (union de 6 buffers): 414.90 km2
+[00:21:19] [INFO] Celda 3: 823 elementos (823 nuevos, total 823) en 2s
+[00:21:22] [INFO] Celda 4: 1424 elementos (1416 nuevos, total 2239) en 2s
+[00:21:29] [INFO] Celda 5: 945 elementos (943 nuevos, total 3182) en 7s
+[00:21:31] [INFO] Celda 6: 3120 elementos (3102 nuevos, total 6284) en 3s
+[00:21:33] [INFO] Celda 9: 1443 elementos (1440 nuevos, total 7724) en 2s
+[00:21:35] [INFO] Celda 10: 567 elementos (558 nuevos, total 8282) en 2s
+[00:21:37] [INFO] Celda 11: 867 elementos (849 nuevos, total 9131) en 2s
+[00:21:39] [INFO] Celda 12: 1657 elementos (1644 nuevos, total 10775) en 2s
+[00:21:41] [INFO] Celda 15: 1219 elementos (1201 nuevos, total 11976) en 2s
+[00:21:43] [INFO] Celda 16: 1967 elementos (1957 nuevos, total 13933) en 2s
+[00:21:45] [INFO] Celda 17: 2224 elementos (2207 nuevos, total 16140) en 2s
+[00:21:47] [INFO] Celda 18: 922 elementos (908 nuevos, total 17048) en 2s
+[00:21:49] [INFO] Celda 25: 4781 elementos (4781 nuevos, total 21829) en 2s
+[00:21:55] [INFO] Celda 26: 1540 elementos (1512 nuevos, total 23341) en 6s
+[00:21:57] [INFO] Celda 31: 1424 elementos (1419 nuevos, total 24760) en 2s
+[00:21:59] [INFO] Celda 32: 773 elementos (759 nuevos, total 25519) en 2s
+[00:21:59] [INFO] Recorte al area de estudio: 25519 -> 10327 edificios
+[00:21:59] [INFO] Guardado crudo: C:\Users\sdari\Desktop\GIS-AGENT\data\input\edificios_osm_raw.gpkg (10327 edificios)
+[00:23:13] [INFO] Leidos 10327 edificios crudos (CRS EPSG:4326)
+[00:23:13] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\work\edificios_utm.gpkg
+[00:23:13] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\work\universidades_utm.gpkg (6 puntos)
+[00:23:14] [INFO] Buffer UNAJ: 78.41 km2
+[00:23:14] [INFO] Buffer UNQUI: 78.41 km2
+[00:23:14] [INFO] Buffer UNLP: 78.41 km2
+[00:23:14] [INFO] Buffer UNLZ: 78.41 km2
+[00:23:14] [INFO] Buffer UNaB: 78.41 km2
+[00:23:15] [INFO] Buffer UNLANUS: 78.41 km2
+[00:23:15] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\work\buffers\todos_los_buffers.gpkg
+[00:23:16] [INFO] Union de 5 buffers competidores: 346.85 km2
+[00:23:16] [INFO] HUECO EXCLUSIVO UNAJ: 68.05 km2 (86.8% del buffer UNAJ)
+[00:23:18] [INFO] Edificios dentro del hueco: 1497 de 10327 descargados
+[00:23:18] [WARNING] Solo el 20.9% de los edificios del hueco tiene un tag residencial explicito (predomina building=yes). Se usan todos los edificios excepto los tageados explicitamente como no residenciales.
+[00:23:18] [INFO] POBLACION ESTIMADA: 3,882 hab (1294 edificios x 3.0)
+[00:23:19] [INFO] Distancias:
+universidad         rol  dist_centroide_km  dist_min_al_hueco_km
+       UNAJ    objetivo               0.25                  0.00
+      UNQUI competidora               7.88                  4.99
+       UNaB competidora              11.34                  6.39
+    UNLANUS competidora              12.18                  7.10
+       UNLZ competidora              16.94                 11.94
+       UNLP competidora              34.31                 29.42
+[00:23:41] [INFO] Mapa 1: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_buffers_comparativos.png
+[00:23:42] [INFO] Mapa 2: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_hueco_exclusivo.png
+[00:23:46] [INFO] Mapa 3: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_edificios_poblacion.png
+[00:24:12] [INFO] Mapa 1: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_buffers_comparativos.png
+[00:24:14] [INFO] Mapa 2: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_hueco_exclusivo.png
+[00:24:17] [INFO] Mapa 3: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_edificios_poblacion.png
+[09:35:09] [INFO] Radios censales cargados: 4376
+[09:35:09] [INFO] r=   1 km -> hueco   3.14 km2 (100.0%) |  17,904 hab
+[09:35:09] [INFO] r= 1.5 km -> hueco   7.06 km2 (100.0%) |  46,314 hab
+[09:35:09] [INFO] r=   2 km -> hueco  12.55 km2 (100.0%) |  93,809 hab
+[09:35:09] [INFO] r= 2.5 km -> hueco  19.60 km2 (100.0%) | 153,725 hab
+[09:35:09] [INFO] r=   3 km -> hueco  28.23 km2 (100.0%) | 229,713 hab
+[09:35:09] [INFO] r= 3.5 km -> hueco  38.42 km2 (100.0%) | 318,839 hab
+[09:35:09] [INFO] r=   4 km -> hueco  49.63 km2 ( 98.9%) | 408,862 hab
+[09:35:09] [INFO] r= 4.5 km -> hueco  59.16 km2 ( 93.2%) | 483,125 hab
+[09:35:09] [INFO] r=   5 km -> hueco  68.05 km2 ( 86.8%) | 554,692 hab
+[09:35:10] [INFO] r=   6 km -> hueco  83.44 km2 ( 73.9%) | 674,001 hab
+[09:35:10] [INFO] r=   7 km -> hueco  86.25 km2 ( 56.1%) | 608,389 hab
+[09:35:10] [INFO] r=   8 km -> hueco  88.64 km2 ( 44.2%) | 559,894 hab
+[09:35:10] [INFO] r=   9 km -> hueco  92.19 km2 ( 36.3%) | 485,599 hab
+[09:35:10] [INFO] r=  10 km -> hueco  96.20 km2 ( 30.7%) | 411,833 hab
+[09:35:10] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\sensibilidad_radio.csv
+[09:35:10] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\huecos_por_radio.gpkg
+[09:35:10] [INFO] Grafico: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\grafico_sensibilidad_radio.png
+[09:35:10] [INFO] Mapa: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_sensibilidad_radio.png
+[09:37:22] [INFO] Tile [0,2]: +2983 vias (total 2983 vias / 11235 nodos) 13s
+[09:37:24] [INFO] Tile [0,3]: +3016 vias (total 5999 vias / 21568 nodos) 3s
+[09:37:35] [WARNING] Tile -34.75906378371272,-58.5072915 intento 1 fallo: HTTP 429
+[09:37:59] [WARNING] Tile -34.75906378371272,-58.5072915 intento 2 fallo: HTTP 504
+[09:38:22] [INFO] Tile [0,4]: +3521 vias (total 9520 vias / 34360 nodos) 58s
+[09:38:35] [INFO] Tile [0,5]: +7429 vias (total 16949 vias / 61355 nodos) 13s
+[09:38:50] [WARNING] Tile -34.8567663078701,-58.40170020 intento 1 fallo: HTTP 429
+[09:39:03] [INFO] Tile [1,2]: +2471 vias (total 19420 vias / 70439 nodos) 28s
+[09:39:13] [WARNING] Tile -34.80791504579141,-58.4017002 intento 1 fallo: HTTP 429
+[09:39:45] [INFO] Tile [1,3]: +3665 vias (total 23085 vias / 83841 nodos) 42s
+[09:40:38] [INFO] Tile [1,4]: +4262 vias (total 27347 vias / 98927 nodos) 53s
+[09:41:12] [WARNING] Tile -34.71021252163402,-58.4017002 intento 1 fallo: HTTP 504
+[09:41:52] [WARNING] Tile -34.71021252163402,-58.4017002 intento 2 fallo: HTTP 504
+[09:42:34] [INFO] Tile [1,5]: +5567 vias (total 32914 vias / 118686 nodos) 116s
+[09:42:59] [INFO] Tile [2,2]: +2969 vias (total 35883 vias / 127966 nodos) 24s
+[09:43:38] [INFO] Tile [2,3]: +3448 vias (total 39331 vias / 139436 nodos) 39s
+[09:44:02] [INFO] Tile [2,4]: +2778 vias (total 42109 vias / 150985 nodos) 24s
+[09:44:28] [INFO] Tile [2,5]: +729 vias (total 42838 vias / 154553 nodos) 26s
+[09:44:52] [INFO] Tile [4,0]: +1982 vias (total 44820 vias / 162812 nodos) 24s
+[09:45:38] [WARNING] Tile -34.9056175699488,-58.08492614 intento 1 fallo: HTTP 504
+[09:46:11] [INFO] Tile [4,1]: +2483 vias (total 47303 vias / 171634 nodos) 79s
+[09:46:36] [INFO] Tile [5,0]: +3893 vias (total 51196 vias / 182971 nodos) 25s
+[09:47:08] [INFO] Tile [5,1]: +2243 vias (total 53439 vias / 191652 nodos) 31s
+[09:47:08] [INFO] Red descargada: 53439 vias, 191652 nodos
+[09:47:09] [INFO] Grafo: 186,682 nodos, 243,298 aristas
+[09:53:06] [INFO] UNAJ: area de servicio 54.58 km2 (69.6% del circulo), 12584 nodos, snap 13 m
+[10:00:25] [INFO] UNQUI: area de servicio 41.17 km2 (52.5% del circulo), 12149 nodos, snap 78 m
+[11:03:08] [WARNING] Tile -34.8567663078701,-58.50729156 intento 1 fallo: HTTP 504
+[11:03:27] [WARNING] Tile -34.8567663078701,-58.50729156 intento 2 fallo: HTTP 504
+[11:03:45] [INFO] Tile [0,2]: +2983 vias (total 2983 vias / 11235 nodos) 46s
+[11:03:57] [INFO] Tile [0,3]: +3016 vias (total 5999 vias / 21568 nodos) 12s
+[11:04:09] [WARNING] Tile -34.75906378371272,-58.5072915 intento 1 fallo: HTTP 429
+[11:04:27] [WARNING] Tile -34.75906378371272,-58.5072915 intento 2 fallo: HTTP 429
+[11:04:49] [INFO] Tile [0,4]: +3521 vias (total 9520 vias / 34360 nodos) 52s
+[11:04:59] [WARNING] Tile -34.71021252163402,-58.5072915 intento 1 fallo: HTTP 504
+[11:05:18] [WARNING] Tile -34.71021252163402,-58.5072915 intento 2 fallo: HTTP 504
+[11:05:36] [INFO] Tile [0,5]: +7429 vias (total 16949 vias / 61355 nodos) 47s
+[11:05:51] [INFO] Tile [1,2]: +2471 vias (total 19420 vias / 70439 nodos) 15s
+[11:06:04] [WARNING] Tile -34.80791504579141,-58.4017002 intento 1 fallo: HTTP 429
+[11:06:42] [WARNING] Tile -34.80791504579141,-58.4017002 intento 2 fallo: HTTP 504
+[11:07:23] [INFO] Tile [1,3]: +3665 vias (total 23085 vias / 83841 nodos) 92s
+[11:07:48] [INFO] Tile [1,4]: +4262 vias (total 27347 vias / 98927 nodos) 25s
+[11:08:14] [INFO] Tile [1,5]: +5567 vias (total 32914 vias / 118686 nodos) 26s
+[11:08:48] [WARNING] Tile -34.8567663078701,-58.29610885 intento 1 fallo: HTTP 504
+[11:09:25] [INFO] Tile [2,2]: +2969 vias (total 35883 vias / 127966 nodos) 71s
+[11:09:58] [INFO] Tile [2,3]: +3448 vias (total 39331 vias / 139436 nodos) 32s
+[11:10:26] [INFO] Tile [2,4]: +2778 vias (total 42109 vias / 150985 nodos) 29s
+[11:10:50] [INFO] Tile [2,5]: +729 vias (total 42838 vias / 154553 nodos) 24s
+[11:11:21] [WARNING] Tile -34.954468832027494,-58.084926 intento 1 fallo: HTTP 429
+[11:11:56] [INFO] Tile [4,0]: +1982 vias (total 44820 vias / 162812 nodos) 66s
+[11:12:20] [INFO] Tile [4,1]: +2483 vias (total 47303 vias / 171634 nodos) 23s
+[11:12:43] [INFO] Tile [5,0]: +3893 vias (total 51196 vias / 182971 nodos) 24s
+[11:13:07] [INFO] Tile [5,1]: +2243 vias (total 53439 vias / 191652 nodos) 24s
+[11:13:07] [INFO] Red descargada: 53439 vias, 191652 nodos
+[11:13:07] [INFO] Cache guardado: C:\Users\sdari\Desktop\GIS-AGENT\work\red_vial_osm.pkl
+[11:13:09] [INFO] Grafo: 186,682 nodos, 243,298 aristas
+[11:18:00] [INFO] UNAJ: area de servicio 54.58 km2 (69.6% del circulo), 12584 nodos, snap 13 m
+[11:24:24] [INFO] UNQUI: area de servicio 41.17 km2 (52.5% del circulo), 12149 nodos, snap 78 m
+[11:30:48] [INFO] UNLP: area de servicio 49.23 km2 (62.8% del circulo), 11245 nodos, snap 69 m
+[11:33:38] [INFO] UNLZ: area de servicio 48.21 km2 (61.5% del circulo), 9523 nodos, snap 40 m
+[11:38:40] [INFO] UNaB: area de servicio 62.08 km2 (79.2% del circulo), 13235 nodos, snap 4 m
+[11:42:31] [INFO] UNLANUS: area de servicio 59.80 km2 (76.3% del circulo), 11635 nodos, snap 38 m
+[11:42:31] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\areas_servicio_red.gpkg
+[11:42:31] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\hueco_exclusivo_UNAJ_red.gpkg
+[11:42:32] [INFO] Mapa: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_isocronas_red.png
+[13:14:09] [INFO] Leidos 10327 edificios crudos (CRS EPSG:4326)
+[13:14:09] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\work\edificios_utm.gpkg
+[13:14:09] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\work\universidades_utm.gpkg (6 puntos)
+[13:14:09] [INFO] Buffer UNAJ: 78.41 km2
+[13:14:09] [INFO] Buffer UNQUI: 78.41 km2
+[13:14:09] [INFO] Buffer UNLP: 78.41 km2
+[13:14:09] [INFO] Buffer UNLZ: 78.41 km2
+[13:14:09] [INFO] Buffer UNaB: 78.41 km2
+[13:14:09] [INFO] Buffer UNLANUS: 78.41 km2
+[13:14:09] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\work\buffers\todos_los_buffers.gpkg
+[13:14:09] [INFO] Union de 5 buffers competidores: 346.85 km2
+[13:14:10] [INFO] HUECO EXCLUSIVO UNAJ: 68.05 km2 (86.8% del buffer UNAJ)
+[13:14:10] [INFO] Edificios dentro del hueco: 1497 de 10327 descargados
+[13:14:10] [WARNING] Solo el 20.9% de los edificios del hueco tiene un tag residencial explicito (predomina building=yes). Se usan todos los edificios excepto los tageados explicitamente como no residenciales.
+[13:14:10] [INFO] POBLACION ESTIMADA: 3,882 hab (1294 edificios x 3.0)
+[13:14:10] [INFO] Distancias:
+universidad         rol  dist_centroide_km  dist_min_al_hueco_km
+       UNAJ    objetivo               0.25                  0.00
+      UNQUI competidora               7.88                  4.99
+       UNaB competidora              11.34                  6.39
+    UNLANUS competidora              12.18                  7.10
+       UNLZ competidora              16.94                 11.94
+       UNLP competidora              34.31                 29.42
+[13:14:10] [INFO] Mapa 1: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_buffers_comparativos.png
+[13:14:11] [INFO] Mapa 2: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_hueco_exclusivo.png
+[13:14:15] [INFO] Mapa 3: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_edificios_poblacion.png
+[13:14:16] [INFO] Radios censales cargados: 4376
+[13:14:16] [INFO] r=   1 km -> hueco   3.14 km2 (100.0%) |  17,904 hab
+[13:14:16] [INFO] r= 1.5 km -> hueco   7.06 km2 (100.0%) |  46,314 hab
+[13:14:16] [INFO] r=   2 km -> hueco  12.55 km2 (100.0%) |  93,809 hab
+[13:14:16] [INFO] r= 2.5 km -> hueco  19.60 km2 (100.0%) | 153,725 hab
+[13:14:16] [INFO] r=   3 km -> hueco  28.23 km2 (100.0%) | 229,713 hab
+[13:14:16] [INFO] r= 3.5 km -> hueco  38.42 km2 (100.0%) | 318,839 hab
+[13:14:16] [INFO] r=   4 km -> hueco  49.63 km2 ( 98.9%) | 408,862 hab
+[13:14:16] [INFO] r= 4.5 km -> hueco  59.16 km2 ( 93.2%) | 483,125 hab
+[13:14:16] [INFO] r=   5 km -> hueco  68.05 km2 ( 86.8%) | 554,692 hab
+[13:14:16] [INFO] r=   6 km -> hueco  83.44 km2 ( 73.9%) | 674,001 hab
+[13:14:16] [INFO] r=   7 km -> hueco  86.25 km2 ( 56.1%) | 608,389 hab
+[13:14:16] [INFO] r=   8 km -> hueco  88.64 km2 ( 44.2%) | 559,894 hab
+[13:14:16] [INFO] r=   9 km -> hueco  92.19 km2 ( 36.3%) | 485,599 hab
+[13:14:16] [INFO] r=  10 km -> hueco  96.20 km2 ( 30.7%) | 411,833 hab
+[13:14:16] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\sensibilidad_radio.csv
+[13:14:16] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\huecos_por_radio.gpkg
+[13:14:17] [INFO] Grafico: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\grafico_sensibilidad_radio.png
+[13:14:17] [INFO] Mapa: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_sensibilidad_radio.png
+[13:14:17] [INFO] Red vial leida del cache: 53439 vias, 191652 nodos
+[13:14:19] [INFO] Grafo: 186,682 nodos, 243,298 aristas
+[13:19:48] [INFO] UNAJ: area de servicio 54.58 km2 (69.6% del circulo), 12584 nodos, snap 13 m
+[13:26:27] [INFO] UNQUI: area de servicio 41.17 km2 (52.5% del circulo), 12149 nodos, snap 78 m
+[13:33:13] [INFO] UNLP: area de servicio 49.23 km2 (62.8% del circulo), 11245 nodos, snap 69 m
+[13:36:11] [INFO] UNLZ: area de servicio 48.21 km2 (61.5% del circulo), 9523 nodos, snap 40 m
+[13:41:19] [INFO] UNaB: area de servicio 62.08 km2 (79.2% del circulo), 13235 nodos, snap 4 m
+[13:45:31] [INFO] UNLANUS: area de servicio 59.80 km2 (76.3% del circulo), 11635 nodos, snap 38 m
+[13:45:31] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\areas_servicio_red.gpkg
+[13:45:32] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\hueco_exclusivo_UNAJ_red.gpkg
+[13:45:32] [INFO] Mapa: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_isocronas_red.png
+[13:59:06] [INFO] Universidades del AMBA leidas del cache: C:\Users\sdari\Desktop\GIS-AGENT\data\censo\universidades_osm_amba.json
+[13:59:06] [INFO] Candidatos nacionales/UTN/UBA en el AMBA: 35 totales, 2 ya incluidas en el analisis, 27 nuevas tras deduplicar
+[13:59:06] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\universo_universidades_amba.gpkg
+[13:59:07] [INFO] Mapa: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_universo_universidades.png
+[14:00:25] [INFO] Universidades del AMBA leidas del cache: C:\Users\sdari\Desktop\GIS-AGENT\data\censo\universidades_osm_amba.json
+[14:00:25] [INFO] 2 candidatos son sedes secundarias de universidades ya incluidas (ver MISMO_CAMPUS_QUE), no competidoras nuevas: ['UNaB (sede secundaria, Campus Almirante Brown)', 'UNLaNUS (sede secundaria, Predio Yrigoyen)']
+[14:00:25] [INFO] Candidatos nacionales/UTN/UBA en el AMBA: 35 totales, 2 ya incluidas en el analisis, 27 nuevas tras deduplicar
+[14:00:25] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\universo_universidades_amba.gpkg
+[14:00:26] [INFO] Mapa: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_universo_universidades.png
+[14:02:45] [INFO] Universidades del AMBA leidas del cache: C:\Users\sdari\Desktop\GIS-AGENT\data\censo\universidades_osm_amba.json
+[14:02:45] [INFO] 2 candidatos son sedes secundarias de universidades ya incluidas (ver MISMO_CAMPUS_QUE), no competidoras nuevas: ['UNaB (sede secundaria, Campus Almirante Brown)', 'UNLaNUS (sede secundaria, Predio Yrigoyen)']
+[14:02:45] [INFO] Candidatos nacionales/UTN/UBA en el AMBA: 35 totales, 2 ya incluidas en el analisis, 27 nuevas tras deduplicar
+[14:02:45] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\universo_universidades_amba.gpkg
+[14:02:46] [INFO] Mapa: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_universo_universidades.png
+[14:05:35] [INFO] RENABAP descargado: 685 barrios populares en el area de estudio
+[14:05:35] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\data\censo\renabap_amba.gpkg
+[14:05:35] [INFO] Barrios populares que intersecan el hueco: 42
+[14:05:35] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\renabap_en_hueco.gpkg
+[14:05:36] [INFO] Mapa: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_renabap.png
+[14:06:15] [INFO] RENABAP leido del cache: C:\Users\sdari\Desktop\GIS-AGENT\data\censo\renabap_amba.gpkg
+[14:06:15] [INFO] Barrios populares que intersecan el hueco: 42
+[14:06:15] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\renabap_en_hueco.gpkg
+[14:06:16] [INFO] Mapa: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_renabap.png
+[14:06:35] [INFO] RENABAP leido del cache: C:\Users\sdari\Desktop\GIS-AGENT\data\censo\renabap_amba.gpkg
+[14:06:35] [INFO] Barrios populares que intersecan el hueco: 42
+[14:06:35] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\renabap_en_hueco.gpkg
+[14:06:36] [INFO] Mapa: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_renabap.png
+[14:06:52] [INFO] RENABAP leido del cache: C:\Users\sdari\Desktop\GIS-AGENT\data\censo\renabap_amba.gpkg
+[14:06:52] [INFO] Barrios populares que intersecan el hueco: 42
+[14:06:52] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\renabap_en_hueco.gpkg
+[14:06:52] [INFO] Mapa: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_renabap.png
+[14:10:19] [INFO] RENABAP leido del cache: C:\Users\sdari\Desktop\GIS-AGENT\data\censo\renabap_amba.gpkg
+[14:10:19] [INFO] Barrios populares que intersecan el hueco: 42
+[14:10:19] [INFO] Guardado: C:\Users\sdari\Desktop\GIS-AGENT\outputs\renabap_en_hueco.gpkg
+[14:10:19] [INFO] Mapa: C:\Users\sdari\Desktop\GIS-AGENT\outputs\maps\mapa_renabap.png

@@ -1,0 +1,1340 @@
+<meta charset="utf-8">
+<title>El Territorio de la UNAJ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/*LEAFLET_CSS*/
+</style>
+<style>
+:root {
+  --paper: #eef1ee;
+  --paper-raised: #ffffff;
+  --ink: #1b2422;
+  --ink-soft: #51605b;
+  --line: #ccd3cd;
+  --brick: #c1392b;
+  --brick-soft: rgba(193,57,43,.14);
+  --teal: #1f6f78;
+  --teal-soft: rgba(31,111,120,.14);
+  --amber: #b8791f;
+  --amber-soft: rgba(184,121,31,.16);
+  --plum: #6a4c7a;
+  --plum-soft: rgba(106,76,122,.14);
+  --buffer-line: #6b7d78;
+  --water: #b9cdd6;
+  --water-line: #94b0bc;
+  --road: #c7c2b3;
+  --partido-line: #a9a496;
+  --shadow: 0 8px 28px rgba(20,26,24,.16);
+  --radius: 3px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #171a18;
+    --paper-raised: #202422;
+    --ink: #e9ece6;
+    --ink-soft: #a3ada7;
+    --line: #343b36;
+    --brick: #e2685a;
+    --brick-soft: rgba(226,104,90,.16);
+    --teal: #57a8af;
+    --teal-soft: rgba(87,168,175,.16);
+    --amber: #dba653;
+    --amber-soft: rgba(219,166,83,.18);
+    --plum: #a686b8;
+    --plum-soft: rgba(166,134,184,.16);
+    --buffer-line: #8a9a94;
+    --water: #223a44;
+    --water-line: #3a5966;
+    --road: #3a3a30;
+    --partido-line: #4a4638;
+    --shadow: 0 8px 28px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #171a18;
+  --paper-raised: #202422;
+  --ink: #e9ece6;
+  --ink-soft: #a3ada7;
+  --line: #343b36;
+  --brick: #e2685a;
+  --brick-soft: rgba(226,104,90,.16);
+  --teal: #57a8af;
+  --teal-soft: rgba(87,168,175,.16);
+  --amber: #dba653;
+  --amber-soft: rgba(219,166,83,.18);
+  --plum: #a686b8;
+  --plum-soft: rgba(166,134,184,.16);
+  --buffer-line: #8a9a94;
+  --water: #223a44;
+  --water-line: #3a5966;
+  --road: #3a3a30;
+  --partido-line: #4a4638;
+  --shadow: 0 8px 28px rgba(0,0,0,.45);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Public Sans", system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+}
+.app { position: relative; height: 100vh; width: 100vw; }
+
+/* ---------- top ribbon ---------- */
+.ribbon {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; gap: 20px;
+  padding: 10px 18px;
+  background: var(--paper-raised);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  flex-wrap: wrap;
+}
+.ribbon h1 {
+  font-family: "Big Shoulders Display", sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: .01em;
+  margin: 0;
+  line-height: 1;
+  color: var(--ink);
+  text-wrap: balance;
+  white-space: nowrap;
+}
+.ribbon .sub {
+  font-size: 12px;
+  color: var(--ink-soft);
+  border-left: 1px solid var(--line);
+  padding-left: 16px;
+  max-width: 260px;
+  line-height: 1.3;
+  display: none;
+}
+@media (min-width: 980px) {
+  .ribbon .sub { display: block; }
+}
+.stats {
+  display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap;
+}
+.stat {
+  display: flex; flex-direction: column; align-items: flex-end;
+  padding: 2px 12px; border-left: 1px solid var(--line);
+  min-width: 84px;
+}
+.stat:first-child { border-left: none; }
+.stat b {
+  font-family: "IBM Plex Mono", monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.stat span {
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+.stat.brick b { color: var(--brick); }
+.stat.teal b { color: var(--teal); }
+.stat.amber b { color: var(--amber); }
+
+.menu-btn {
+  display: none;
+  border: 1px solid var(--line); background: var(--paper-raised);
+  color: var(--ink); border-radius: var(--radius); padding: 6px 10px;
+  font-family: inherit; font-size: 13px; cursor: pointer;
+}
+
+/* ---------- map ---------- */
+#map { position: absolute; inset: 0; background: var(--paper); }
+.leaflet-container { background: var(--paper); font-family: "Public Sans", sans-serif; }
+
+/* ---------- control panel ---------- */
+.panel {
+  position: absolute; top: 66px; right: 14px; z-index: 900;
+  width: 268px; max-height: calc(100vh - 90px); overflow-y: auto;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 4px 0;
+}
+.panel-group { border-bottom: 1px solid var(--line); padding: 10px 14px; }
+.panel-group:last-child { border-bottom: none; }
+.panel-group h2 {
+  font-size: 10px; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--ink-soft); margin: 0 0 8px;
+  font-weight: 600;
+}
+.layer-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 4px 0; cursor: pointer; user-select: none;
+}
+.layer-row input { accent-color: var(--ink); margin: 0; cursor: pointer; }
+.swatch {
+  width: 12px; height: 12px; border-radius: 2px; flex: none;
+  border: 1px solid rgba(0,0,0,.15);
+}
+.layer-row .label { font-size: 13px; flex: 1; line-height: 1.25; }
+.layer-row .count {
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px;
+  color: var(--ink-soft); font-variant-numeric: tabular-nums;
+}
+.legend-gradient {
+  display: flex; height: 10px; border-radius: 2px; overflow: hidden;
+  margin: 6px 0 4px; border: 1px solid rgba(0,0,0,.15);
+}
+.legend-gradient div { flex: 1; }
+.legend-scale {
+  display: flex; justify-content: space-between;
+  font-family: "IBM Plex Mono", monospace; font-size: 9.5px;
+  color: var(--ink-soft);
+}
+.panel-note {
+  font-size: 11px; color: var(--ink-soft); line-height: 1.4; margin-top: 4px;
+}
+
+/* ---------- popups ---------- */
+.leaflet-popup-content-wrapper {
+  background: var(--paper-raised); color: var(--ink);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.leaflet-popup-tip { background: var(--paper-raised); }
+.pop h3 {
+  font-family: "Big Shoulders Display", sans-serif; font-size: 16px;
+  font-weight: 700; margin: 0 0 6px; line-height: 1.15;
+}
+.pop table { border-collapse: collapse; font-size: 12px; }
+.pop td { padding: 1.5px 0; vertical-align: top; }
+.pop td.k { color: var(--ink-soft); padding-right: 10px; white-space: nowrap; }
+.pop td.v {
+  font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+.pop .tag {
+  display: inline-block; font-size: 9.5px; text-transform: uppercase;
+  letter-spacing: .06em; padding: 1px 6px; border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+.uni-label {
+  background: var(--paper-raised) !important;
+  border: 1px solid var(--line) !important;
+  color: var(--ink) !important;
+  font-size: 10.5px !important;
+  font-weight: 600;
+  padding: 1px 5px !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+}
+.uni-label::before { display: none; }
+
+.partido-label {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--ink-soft) !important;
+  font-family: "Public Sans", sans-serif !important;
+  font-size: 10.5px !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  opacity: .68;
+  pointer-events: none;
+}
+.partido-label::before { display: none; }
+
+/* ---------- credit strip ---------- */
+.credit {
+  position: absolute; bottom: 10px; left: 10px; z-index: 900;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 5px 10px;
+  font-size: 10px; color: var(--ink-soft);
+  box-shadow: var(--shadow);
+  max-width: 320px; line-height: 1.4;
+}
+.credit b { color: var(--ink); }
+
+/* ---------- story mode (scrollytelling) ---------- */
+.story {
+  position: absolute; top: 52px; left: 0; bottom: 0; z-index: 950;
+  width: min(440px, 94vw);
+  overflow-y: auto; overflow-x: hidden;
+  scroll-snap-type: y proximity;
+  padding: 6vh 0 42vh;
+}
+.story::-webkit-scrollbar { width: 6px; }
+.story::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+.step {
+  scroll-snap-align: start;
+  margin: 14px 14px 26px;
+  padding: 18px 20px;
+  background: color-mix(in srgb, var(--paper-raised) 92%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  opacity: .38;
+  transform: translateY(4px) scale(.985);
+  transition: opacity .35s ease, transform .35s ease, border-color .35s ease;
+}
+.step.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  border-color: var(--brick);
+}
+.step .eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--brick); margin: 0 0 6px; font-weight: 600;
+}
+.step h2 {
+  font-family: "Big Shoulders Display", sans-serif;
+  font-size: 25px; font-weight: 700; line-height: 1.05;
+  margin: 0 0 10px; text-wrap: balance;
+}
+.step p {
+  font-size: 13.5px; line-height: 1.55; color: var(--ink-soft);
+  margin: 0 0 8px;
+}
+.step p b { color: var(--ink); font-weight: 600; }
+.step .bignum {
+  font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums;
+  font-size: 25px; font-weight: 600; color: var(--brick);
+  display: block; margin: 10px 0 2px;
+}
+.step .bignum + .bignum-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--ink-soft); display: block; margin-bottom: 10px;
+}
+
+.progress-rail {
+  position: absolute; z-index: 951; left: 8px; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 7px;
+}
+.progress-rail .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--line); cursor: pointer;
+  transition: background .25s, transform .25s;
+}
+.progress-rail .dot.active { background: var(--brick); transform: scale(1.5); }
+
+.slider-box {
+  margin-top: 12px; padding: 12px; background: var(--brick-soft);
+  border-radius: var(--radius); border: 1px solid var(--line);
+}
+.slider-box input[type="range"] {
+  width: 100%; accent-color: var(--brick); cursor: pointer; margin: 4px 0 8px;
+}
+.slider-readout {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums;
+}
+.slider-readout .r { font-size: 20px; font-weight: 600; color: var(--brick); }
+.slider-readout .k { font-size: 11px; color: var(--ink-soft); text-align: right; line-height: 1.4; }
+
+.explore-cta {
+  display: block; width: 100%; margin-top: 4px;
+  background: var(--ink); color: var(--paper);
+  border: none; border-radius: var(--radius);
+  font-family: "Public Sans", sans-serif; font-weight: 600; font-size: 13px;
+  padding: 10px 14px; cursor: pointer; text-align: center;
+  transition: opacity .2s;
+}
+.explore-cta:hover { opacity: .82; }
+
+.replay-btn, .compare-btn, .compare-back-btn {
+  border: 1px solid var(--line); background: var(--paper-raised); color: var(--ink-soft);
+  border-radius: var(--radius); padding: 5px 10px; font-family: inherit;
+  font-size: 11px; cursor: pointer; display: none; white-space: nowrap;
+}
+.replay-btn:hover, .compare-btn:hover, .compare-back-btn:hover { color: var(--ink); border-color: var(--ink-soft); }
+.app.mode-explore .replay-btn, .app.mode-explore .compare-btn { display: inline-block; }
+.app.mode-explore .story, .app.mode-explore .progress-rail { display: none; }
+.app.mode-story .stats, .app.mode-story .panel, .app.mode-story .menu-btn { display: none; }
+
+/* ---------- ¿vivis en el hueco? ---------- */
+.check-btn {
+  border: 1px solid var(--line); background: var(--paper-raised); color: var(--ink-soft);
+  border-radius: var(--radius); padding: 5px 10px; font-family: inherit;
+  font-size: 11px; cursor: pointer; display: none; white-space: nowrap;
+}
+.check-btn:hover { color: var(--ink); border-color: var(--ink-soft); }
+.app.mode-explore .check-btn { display: inline-block; }
+.check-btn.active { background: var(--brick); border-color: var(--brick); color: #fff; }
+
+.check-hint {
+  position: absolute; top: 66px; left: 50%; transform: translateX(-50%);
+  z-index: 940; display: none;
+  background: var(--ink); color: var(--paper);
+  font-size: 12.5px; font-weight: 500; padding: 8px 16px;
+  border-radius: 20px; box-shadow: var(--shadow); white-space: nowrap;
+}
+.check-hint.show { display: block; }
+
+.check-result {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  z-index: 940; display: none;
+  width: min(400px, 92vw); max-height: 60vh; overflow-y: auto;
+  background: var(--paper-raised); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 16px 18px;
+}
+.check-result.show { display: block; }
+.check-result .close {
+  position: absolute; top: 8px; right: 10px; border: none; background: none;
+  color: var(--ink-soft); font-size: 18px; line-height: 1; cursor: pointer; padding: 4px;
+}
+.check-result .close:hover { color: var(--ink); }
+.check-headline {
+  font-family: "Big Shoulders Display", sans-serif; font-size: 21px; font-weight: 700;
+  line-height: 1.12; margin: 0 20px 10px 0; text-wrap: balance;
+}
+.check-headline.yes { color: var(--brick); }
+.check-headline.no { color: var(--ink-soft); }
+.check-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 5px 0; border-top: 1px solid var(--line); gap: 12px;
+}
+.check-row .k { font-size: 12px; color: var(--ink-soft); }
+.check-row .v {
+  font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums;
+  font-size: 13px; font-weight: 600; text-align: right;
+}
+.check-note {
+  margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line);
+  font-size: 11.5px; color: var(--amber); line-height: 1.4;
+}
+
+/* ---------- comparador lado a lado ---------- */
+.compare-view {
+  position: absolute; inset: 0; z-index: 800; display: none;
+  background: var(--paper);
+}
+.app.mode-compare .compare-view { display: block; }
+.app.mode-compare .story, .app.mode-compare .progress-rail,
+.app.mode-compare .panel, .app.mode-compare .menu-btn,
+.app.mode-compare .stats, .app.mode-compare .replay-btn,
+.app.mode-compare .compare-btn, .app.mode-compare .check-btn,
+.app.mode-compare .check-hint, .app.mode-compare .check-result { display: none; }
+.app.mode-story .check-hint, .app.mode-story .check-result { display: none; }
+.app.mode-compare #map { visibility: hidden; }
+.compare-back-btn { display: none; }
+.app.mode-compare .compare-back-btn { display: inline-block; }
+
+#mapCompareLeft, #mapCompareRight {
+  position: absolute; inset: 0;
+}
+#mapCompareRight { clip-path: inset(0 0 0 50%); }
+
+.compare-label {
+  position: absolute; top: 14px; z-index: 810;
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px;
+  text-transform: uppercase; letter-spacing: .07em; font-weight: 600;
+  padding: 5px 11px; border-radius: 14px;
+  background: var(--paper-raised); border: 1px solid var(--line);
+  box-shadow: var(--shadow); pointer-events: none;
+}
+.compare-label.left { left: 14px; color: var(--brick); }
+.compare-label.right { right: 14px; color: var(--brick); }
+
+.compare-divider {
+  position: absolute; top: 0; bottom: 0; left: 50%; z-index: 820;
+  width: 3px; margin-left: -1.5px; background: var(--paper-raised);
+  box-shadow: 0 0 0 1px var(--line); cursor: ew-resize;
+}
+.compare-handle {
+  position: absolute; top: 50%; left: 50%; z-index: 821;
+  width: 34px; height: 34px; margin: -17px 0 0 -17px;
+  border-radius: 50%; background: var(--paper-raised);
+  border: 1px solid var(--line); box-shadow: var(--shadow);
+  cursor: ew-resize; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--ink-soft); user-select: none;
+}
+
+.compare-stats {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  z-index: 810; display: flex; gap: 0; align-items: stretch;
+  background: var(--paper-raised); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+}
+.compare-stats > div {
+  padding: 8px 16px; text-align: center; border-left: 1px solid var(--line);
+}
+.compare-stats > div:first-child { border-left: none; }
+.compare-stats b {
+  display: block; font-family: "IBM Plex Mono", monospace;
+  font-variant-numeric: tabular-nums; font-size: 17px; font-weight: 600;
+  color: var(--brick);
+}
+.compare-stats span {
+  font-size: 9.5px; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 720px) {
+  .ribbon .sub { display: none; }
+  .stat { min-width: 68px; padding: 2px 8px; }
+  .stat b { font-size: 14px; }
+  .menu-btn { display: block; }
+  .panel { display: none; }
+  .panel.open { display: block; top: 60px; right: 8px; left: 8px; width: auto; }
+  .credit { max-width: calc(100vw - 20px); font-size: 9px; }
+  .progress-rail { display: none; }
+  .step { margin: 10px 8px 20px; padding: 15px 16px; }
+  .step h2 { font-size: 21px; }
+}
+</style>
+
+<div class="app mode-story" id="app">
+  <div class="ribbon">
+    <h1>El Territorio de la UNAJ</h1>
+    <div class="sub">Área de cobertura exclusiva de la Universidad Nacional Arturo Jauretche en el sur del AMBA</div>
+    <div class="stats">
+      <div class="stat brick"><b>68,05</b><span>km² exclusivos</span></div>
+      <div class="stat teal"><b>554.692</b><span>hab. censo 2022</span></div>
+      <div class="stat brick"><b>100%</b><span>excl. por red vial</span></div>
+      <div class="stat amber"><b>30.123</b><span>en barrios populares</span></div>
+    </div>
+    <button class="replay-btn" id="replayBtn">↺ Volver a la historia</button>
+    <button class="compare-btn" id="compareBtn">⇄ Comparar línea recta / red vial</button>
+    <button class="check-btn" id="checkBtn">📍 ¿Vivís en el hueco?</button>
+    <button class="compare-back-btn" id="compareBackBtn">← Volver a explorar</button>
+    <button class="menu-btn" id="menuBtn">Capas ▾</button>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="compare-view" id="compareView">
+    <div id="mapCompareLeft"></div>
+    <div id="mapCompareRight"></div>
+    <div class="compare-label left">Línea recta · 5 km</div>
+    <div class="compare-label right">Red vial · 5 km recorridos</div>
+    <div class="compare-divider" id="compareDivider"></div>
+    <div class="compare-handle" id="compareHandle">⇄</div>
+    <div class="compare-stats">
+      <div><b>68,05 km²</b><span>Línea recta</span></div>
+      <div><b>54,58 km²</b><span>Red vial</span></div>
+      <div><b>+24,7%</b><span>El círculo sobreestima</span></div>
+    </div>
+  </div>
+
+  <div class="progress-rail" id="progressRail"></div>
+
+  <div class="story" id="story">
+    <div class="step" data-step="0">
+      <div class="eyebrow">El territorio de la UNAJ</div>
+      <h2>68 km² donde una sola universidad no compite con nadie.</h2>
+      <p>Seis universidades nacionales, un radio de 5 km cada una. Desplazate para ver cómo se llega, paso a paso, a esa cifra — y para <b>jugarla vos mismo</b> con el slider del paso 4.</p>
+      <p style="font-size:11.5px;color:var(--ink-soft)">↓ Desplazá para empezar</p>
+    </div>
+
+    <div class="step" data-step="1">
+      <div class="eyebrow">Paso 1 · El punto de partida</div>
+      <h2>Seis universidades, un radio de 5 km cada una.</h2>
+      <p>La <b>UNAJ</b> (Florencio Varela) y sus cinco vecinas más cercanas: UNQUI, UNLP, UNLZ, UNaB y UNLaNús. Cada círculo es lo que esa universidad puede cubrir en 5 km a la redonda.</p>
+    </div>
+
+    <div class="step" data-step="2">
+      <div class="eyebrow">Paso 2 · La resta topológica</div>
+      <h2>Al buffer de la UNAJ le restamos los otros cinco.</h2>
+      <p>Lo que queda —en rojo— es el área donde <b>solo</b> la UNAJ llega. No es un recorte arbitrario: es geometría, buffer menos unión de buffers.</p>
+      <span class="bignum">68,05 km²</span>
+      <span class="bignum-label">86,8% del radio de influencia de la UNAJ</span>
+    </div>
+
+    <div class="step" data-step="3">
+      <div class="eyebrow">Paso 3 · Censo 2022</div>
+      <h2>¿Quién vive ahí? 554.692 personas.</h2>
+      <p>Cruzamos el hueco con los <b>562 radios censales</b> del INDEC. Cada polígono es tejido urbano real, no una estimación gruesa — y ninguno es rural.</p>
+      <span class="bignum">8.151</span>
+      <span class="bignum-label">habitantes por km²</span>
+    </div>
+
+    <div class="step" data-step="4">
+      <div class="eyebrow">Paso 4 · Jugá con el radio</div>
+      <h2>¿Y si el radio no fuera 5 km?</h2>
+      <p>Movete por los <b>14 radios</b> que evaluamos, de 1 a 10 km, y mirá cómo cambian el área y la población exclusivas en el mapa.</p>
+      <div class="slider-box">
+        <input type="range" id="radioSlider" min="0" max="13" step="1" value="8">
+        <div class="slider-readout">
+          <span class="r" id="radioReadoutR">5,0 km</span>
+          <span class="k" id="radioReadoutStats">68,05 km²<br>554.692 hab</span>
+        </div>
+      </div>
+      <p style="font-size:11.5px;margin-top:8px">Hasta <b>3,5 km</b> la cobertura es 100% exclusiva. El máximo de población está en <b>6 km</b>, no en 5 — la elección del análisis es conservadora.</p>
+    </div>
+
+    <div class="step" data-step="5">
+      <div class="eyebrow">Paso 5 · Equidad</div>
+      <h2>30.123 de esas personas viven en barrios populares.</h2>
+      <p>El <b>RENABAP</b> releva casa por casa los asentamientos informales del país. En el hueco hay 42, con sólo <b>5,9%</b> de conexión eléctrica formal.</p>
+      <span class="bignum">5,9%</span>
+      <span class="bignum-label">familias con luz formal en barrios populares</span>
+    </div>
+
+    <div class="step" data-step="6">
+      <div class="eyebrow">Paso 6 · No se puede volar</div>
+      <h2>Un círculo de 5 km no es 5 km caminables.</h2>
+      <p>Construimos la red vial real (186 mil nodos) y medimos hasta dónde se llega recorriendo 5 km de calle. El círculo <b>sobreestima</b> la cobertura de las seis universidades.</p>
+      <span class="bignum">100%</span>
+      <span class="bignum-label">exclusivo por red — 0,00 km² de solape</span>
+    </div>
+
+    <div class="step" data-step="7">
+      <div class="eyebrow">Paso 7 · ¿Y si sumamos todo el AMBA?</div>
+      <h2>27 universidades más. Ninguna llega.</h2>
+      <p>No elegimos a mano las 5 competidoras: descargamos <b>las 763 sedes universitarias</b> del AMBA completo. La más cercana de las 27 que quedan afuera está a <b>5,88 km</b> del borde del hueco.</p>
+    </div>
+
+    <div class="step" data-step="8">
+      <div class="eyebrow">Puesta a prueba</div>
+      <h2>¿Esto se sostiene? Lo contrastamos con fuentes externas.</h2>
+      <p>La UNAJ publica de dónde vienen sus estudiantes reales. <b>Florencio Varela y Berazategui calzan casi exacto</b> con la composición de nuestro hueco (33% y 22% reales vs. 34% y 24% en el hueco) — pero <b>Quilmes y Almirante Brown divergen</b>. El buffer de 5 km es una aproximación razonable, no un mapa exacto de la demanda.</p>
+      <span class="bignum">−0,3% a −2,3%</span>
+      <span class="bignum-label">así de conservadora es nuestra fuente censal frente al INDEC oficial — nunca exagera</span>
+      <p style="font-size:11.5px">El RENABAP que usamos (2020) también quedó chico: el registro actual tiene <b>46% más</b> barrios relevados a nivel país.</p>
+    </div>
+
+    <div class="step" data-step="9">
+      <div class="eyebrow">Fin del recorrido</div>
+      <h2>Ahora explorá vos.</h2>
+      <p>Todas las capas quedan disponibles para prender, apagar y cliquear libremente. Ahí vas a encontrar <b>⇄ Comparar</b> (línea recta vs. red vial) y <b>📍 ¿Vivís en el hueco?</b> — hacé clic en cualquier punto del mapa y mirá si te alcanza sólo la UNAJ.</p>
+      <button class="explore-cta" id="exploreBtn">Explorar el mapa libremente →</button>
+    </div>
+  </div>
+
+  <div class="panel" id="panel">
+    <div class="panel-group">
+      <h2>El hallazgo</h2>
+      <div class="layer-row" data-layer="hueco">
+        <input type="checkbox" checked>
+        <span class="swatch" style="background:var(--brick)"></span>
+        <span class="label">Hueco exclusivo (línea recta)</span>
+      </div>
+      <div class="layer-row" data-layer="huecoRed">
+        <input type="checkbox">
+        <span class="swatch" style="background:transparent;border-color:var(--brick);border-width:2px;border-style:dashed"></span>
+        <span class="label">Hueco exclusivo (red vial, 100% excl.)</span>
+      </div>
+      <div class="layer-row" data-layer="buffers">
+        <input type="checkbox" checked>
+        <span class="swatch" style="background:transparent;border-color:var(--buffer-line)"></span>
+        <span class="label">Buffers de 5 km (6 universidades)</span>
+      </div>
+    </div>
+
+    <div class="panel-group">
+      <h2>Población · Censo 2022</h2>
+      <div class="layer-row" data-layer="radios">
+        <input type="checkbox" checked>
+        <span class="swatch" style="background:var(--teal)"></span>
+        <span class="label">Densidad por radio censal</span>
+        <span class="count">562</span>
+      </div>
+      <div class="legend-gradient" id="radiosGradient"></div>
+      <div class="legend-scale" id="radiosScale"></div>
+      <div class="panel-note">hab/km² · interpolación areal, INDEC 2022</div>
+    </div>
+
+    <div class="panel-group">
+      <h2>Equidad</h2>
+      <div class="layer-row" data-layer="renabap">
+        <input type="checkbox" checked>
+        <span class="swatch" style="background:var(--amber)"></span>
+        <span class="label">Barrios populares (RENABAP)</span>
+        <span class="count">42</span>
+      </div>
+      <div class="panel-note">Sólo 5,9% de las familias con conexión eléctrica formal</div>
+    </div>
+
+    <div class="panel-group">
+      <h2>Universo de competidoras</h2>
+      <div class="layer-row" data-layer="universidades">
+        <input type="checkbox" checked>
+        <span class="swatch" style="background:var(--ink);border-radius:50%"></span>
+        <span class="label">Las 6 universidades del análisis</span>
+      </div>
+      <div class="layer-row" data-layer="universo">
+        <input type="checkbox">
+        <span class="swatch" style="background:var(--plum);border-radius:50%"></span>
+        <span class="label">Otras universidades nacionales del AMBA</span>
+        <span class="count">27</span>
+      </div>
+      <div class="panel-note">Ninguna alcanza el hueco — la más cercana queda a 5,88 km de su borde</div>
+    </div>
+  </div>
+
+  <div class="check-hint" id="checkHint">Hacé clic en cualquier punto del mapa ↓</div>
+  <div class="check-result" id="checkResult">
+    <button class="close" id="checkClose">×</button>
+    <div id="checkBody"></div>
+  </div>
+
+  <div class="credit">
+    <b>CRS:</b> EPSG:32721 (UTM 21S) &nbsp;·&nbsp; Fuentes: INDEC Censo 2022, RENABAP/SISU, OpenStreetMap &nbsp;·&nbsp;
+    Clic en cualquier capa para ver el detalle. Informe completo en <b>reports/informe_hueco_educativo.md</b>
+  </div>
+</div>
+
+<script>
+/*LEAFLET_JS*/
+</script>
+<script>
+const DATA = {
+  hueco: /*DATA_HUECO*/,
+  huecoRed: /*DATA_HUECO_RED*/,
+  buffers: /*DATA_BUFFERS*/,
+  universidades: /*DATA_UNIVERSIDADES*/,
+  radios: /*DATA_RADIOS*/,
+  renabap: /*DATA_RENABAP*/,
+  universo: /*DATA_UNIVERSO*/,
+  huecosRadio: /*DATA_HUECOS_RADIO*/,
+  areasServicioRed: /*DATA_AREAS_SERVICIO_RED*/,
+  costa: /*DATA_COSTA*/,
+  agua: /*DATA_AGUA*/,
+  partidos: /*DATA_PARTIDOS*/,
+  redVialBase: /*DATA_RED_VIAL_BASE*/,
+};
+const SENSIBILIDAD = /*DATA_SENSIBILIDAD*/;
+
+(function () {
+  const isDark = () => {
+    const el = document.documentElement;
+    if (el.getAttribute('data-theme') === 'dark') return true;
+    if (el.getAttribute('data-theme') === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  };
+
+  // Mapa base propio (sin tiles externos: el CSP del artifact no permite
+  // cargarlos). Se arma con datos que ya bajamos en fases anteriores: la red
+  // vial principal (fase de isocronas), la costa del Rio de la Plata y los
+  // limites de partido (WFS de INDEC), todo simplificado y liviano.
+  function buildBasemap(targetMap) {
+    L.geoJSON(DATA.agua, {
+      style: function () { return { color: getVar('--water-line'), weight: 1, fillColor: getVar('--water'), fillOpacity: 1 }; },
+    }).addTo(targetMap);
+    L.geoJSON(DATA.redVialBase, {
+      renderer: L.canvas(), // 8500+ segmentos: canvas en vez de SVG para no saturar el DOM
+      interactive: false,
+      style: function (f) {
+        const c = f.properties.clase;
+        return { color: getVar('--road'), weight: c === 3 ? 1.3 : c === 2 ? 1 : .7, opacity: c === 3 ? .9 : .65 };
+      },
+    }).addTo(targetMap);
+    L.geoJSON(DATA.partidos, {
+      style: function () { return { color: getVar('--partido-line'), weight: 1, dashArray: '1,4', fill: false }; },
+      onEachFeature: function (f, layer) {
+        layer.bindTooltip(f.properties.nombre, { permanent: true, direction: 'center', className: 'partido-label' });
+      },
+    }).addTo(targetMap);
+  }
+
+  const map = L.map('map', {
+    zoomControl: false,
+    attributionControl: false,
+    minZoom: 10,
+    maxZoom: 17,
+  });
+  L.control.zoom({ position: 'bottomright' }).addTo(map);
+  map.invalidateSize(); // fuerza a Leaflet a medir el contenedor: sin esto
+  // map._size queda en (0,0) y flyToBounds calcula NaN antes del primer resize
+  buildBasemap(map);
+
+  const NOMBRES_LARGOS = {
+    UNAJ: 'Univ. Nacional Arturo Jauretche',
+    UNQUI: 'Univ. Nacional de Quilmes',
+    UNLP: 'Univ. Nacional de La Plata',
+    UNLZ: 'Univ. Nacional de Lomas de Zamora',
+    UNaB: 'Univ. Nacional Guillermo Brown',
+    UNLANUS: 'Univ. Nacional de Lanús',
+  };
+
+  function fmt(n, dec) {
+    if (n === null || n === undefined) return '—';
+    return Number(n).toLocaleString('es-AR', {
+      minimumFractionDigits: dec || 0, maximumFractionDigits: dec || 0,
+    });
+  }
+
+  function popHTML(title, tagText, tagColor, rows) {
+    let html = '<div class="pop">';
+    if (tagText) {
+      html += '<span class="tag" style="background:' + tagColor + '22;color:' + tagColor + '">' + tagText + '</span><br>';
+    }
+    html += '<h3>' + title + '</h3><table>';
+    rows.forEach(function (r) {
+      html += '<tr><td class="k">' + r[0] + '</td><td class="v">' + r[1] + '</td></tr>';
+    });
+    html += '</table></div>';
+    return html;
+  }
+
+  // ---------- buffers (6 universidades) ----------
+  const buffersLayer = L.geoJSON(DATA.buffers, {
+    style: function (f) {
+      const esObjetivo = f.properties.rol === 'objetivo';
+      return {
+        color: esObjetivo ? getVar('--brick') : getVar('--buffer-line'),
+        weight: esObjetivo ? 2 : 1.2,
+        fill: false,
+        dashArray: esObjetivo ? null : '3,4',
+      };
+    },
+    onEachFeature: function (f, layer) {
+      const p = f.properties;
+      layer.bindPopup(popHTML(
+        NOMBRES_LARGOS[p.nombre] || p.nombre_largo,
+        p.rol === 'objetivo' ? 'Universidad estudiada' : 'Competidora',
+        p.rol === 'objetivo' ? getVar('--brick') : getVar('--buffer-line'),
+        [['Radio de influencia', '5 km'], ['Área del buffer', fmt(p.area_km2, 2) + ' km²']]
+      ));
+    },
+  });
+
+  // ---------- hueco exclusivo (euclidiano) ----------
+  const huecoLayer = L.geoJSON(DATA.hueco, {
+    style: function () {
+      return { color: getVar('--brick'), weight: 2, fillColor: getVar('--brick'), fillOpacity: .30 };
+    },
+    onEachFeature: function (f, layer) {
+      const p = f.properties;
+      layer.bindPopup(popHTML(
+        'Hueco exclusivo UNAJ', 'Línea recta · 5 km', getVar('--brick'),
+        [['Área', fmt(p.area_km2, 2) + ' km²'],
+         ['% del buffer UNAJ', fmt(p.pct_del_buffer_unaj, 1) + ' %'],
+         ['Población (Censo 2022)', '554.692 hab']]
+      ));
+    },
+  });
+
+  // ---------- hueco exclusivo (red vial) ----------
+  const huecoRedLayer = L.geoJSON(DATA.huecoRed, {
+    style: function () {
+      return { color: getVar('--brick'), weight: 2.4, dashArray: '2,5', fill: false };
+    },
+    onEachFeature: function (f, layer) {
+      const p = f.properties;
+      layer.bindPopup(popHTML(
+        'Hueco exclusivo por red vial', '100% exclusivo', getVar('--brick'),
+        [['Área', fmt(p.area_km2, 2) + ' km²'],
+         ['Solape con otras universidades', '0,00 km²'],
+         ['Población (Censo 2022)', fmt(p.poblacion_censo_2022) + ' hab']]
+      ));
+    },
+  });
+
+  // ---------- radios censales (choropleth) ----------
+  const densidades = DATA.radios.features.map(function (f) { return f.properties.densidad_hab_km2; }).sort(function (a, b) { return a - b; });
+  function quantile(arr, q) {
+    const pos = (arr.length - 1) * q;
+    const base = Math.floor(pos), rest = pos - base;
+    return arr[base + 1] !== undefined ? arr[base] + rest * (arr[base + 1] - arr[base]) : arr[base];
+  }
+  const breaks = [0, .2, .4, .6, .8, 1].map(function (q) { return quantile(densidades, q); });
+  const rampLight = ['#dcecec', '#a9d2d3', '#6fb0b4', '#3f8d92', '#1f6f78'];
+  const rampDark = ['#254745', '#356a6b', '#4c8d8f', '#6cabab', '#8fc9c8'];
+  function colorFor(v) {
+    const ramp = isDark() ? rampDark : rampLight;
+    for (let i = 1; i < breaks.length; i++) {
+      if (v <= breaks[i]) return ramp[i - 1];
+    }
+    return ramp[ramp.length - 1];
+  }
+  const radiosLayer = L.geoJSON(DATA.radios, {
+    style: function (f) {
+      return { color: isDark() ? '#0d1615' : '#ffffff', weight: .4, fillColor: colorFor(f.properties.densidad_hab_km2), fillOpacity: .82 };
+    },
+    onEachFeature: function (f, layer) {
+      const p = f.properties;
+      layer.bindPopup(popHTML(
+        p.dpto || 'Radio censal', 'Censo Nacional 2022', getVar('--teal'),
+        [['Población asignada', fmt(p.poblacion_asignada)],
+         ['Densidad', fmt(p.densidad_hab_km2) + ' hab/km²']]
+      ));
+      layer.on('mouseover', function () { layer.setStyle({ weight: 1.6, color: getVar('--ink') }); });
+      layer.on('mouseout', function () { layer.setStyle({ weight: .4, color: isDark() ? '#0d1615' : '#ffffff' }); });
+    },
+  });
+
+  function buildLegend() {
+    const grad = document.getElementById('radiosGradient');
+    const scale = document.getElementById('radiosScale');
+    grad.innerHTML = ''; scale.innerHTML = '';
+    const ramp = isDark() ? rampDark : rampLight;
+    ramp.forEach(function (c) {
+      const d = document.createElement('div'); d.style.background = c; grad.appendChild(d);
+    });
+    [breaks[0], breaks[2], breaks[5]].forEach(function (b) {
+      const s = document.createElement('span'); s.textContent = fmt(Math.round(b)); scale.appendChild(s);
+    });
+  }
+
+  // ---------- RENABAP ----------
+  const renabapLayer = L.geoJSON(DATA.renabap, {
+    style: function () {
+      return { color: getVar('--amber'), weight: 1, fillColor: getVar('--amber'), fillOpacity: .55 };
+    },
+    onEachFeature: function (f, layer) {
+      const p = f.properties;
+      layer.bindPopup(popHTML(
+        p.Barrio || 'Barrio popular', 'RENABAP · ' + (p.Departamen || ''), getVar('--amber'),
+        [['Familias relevadas', fmt(p.familias_en_hueco)],
+         ['Población estimada', fmt(p.poblacion_en_hueco) + ' hab'],
+         ['Electricidad', (p.Electricid || 'dato ilegible en la fuente')],
+         ['Agua', (p.Agua || 'dato ilegible en la fuente')],
+         ['Cloaca', (p.Cloaca || 'dato ilegible en la fuente')]]
+      ));
+    },
+  });
+
+  // ---------- universidades (las 6) ----------
+  const universidadesLayer = L.geoJSON(DATA.universidades, {
+    pointToLayer: function (f, latlng) {
+      const esObjetivo = f.properties.rol === 'objetivo';
+      return L.circleMarker(latlng, {
+        radius: esObjetivo ? 8 : 6,
+        color: esObjetivo ? getVar('--brick') : getVar('--ink'),
+        weight: 2, fillColor: esObjetivo ? getVar('--brick') : getVar('--ink'),
+        fillOpacity: esObjetivo ? .9 : .75,
+      });
+    },
+    onEachFeature: function (f, layer) {
+      const p = f.properties;
+      layer.bindPopup(popHTML(
+        NOMBRES_LARGOS[p.nombre] || p.nombre_largo,
+        p.rol === 'objetivo' ? 'Universidad estudiada' : 'Competidora',
+        p.rol === 'objetivo' ? getVar('--brick') : getVar('--ink'),
+        [['Sigla', p.nombre]]
+      ));
+      layer.bindTooltip(p.nombre, { permanent: true, direction: 'top', offset: [0, -8], className: 'uni-label' });
+    },
+  });
+
+  // ---------- universo (otras universidades del AMBA) ----------
+  const universoLayer = L.geoJSON(DATA.universo, {
+    pointToLayer: function (f, latlng) {
+      return L.circleMarker(latlng, { radius: 5, color: getVar('--plum'), weight: 1.5, fillColor: getVar('--plum'), fillOpacity: .7 });
+    },
+    onEachFeature: function (f, layer) {
+      const p = f.properties;
+      const rows = [['Distancia al hueco', fmt(p.dist_hueco_km, 2) + ' km']];
+      if (p.mismo_campus_que) rows.push(['Nota', p.mismo_campus_que]);
+      layer.bindPopup(popHTML(p.nombre_osm.trim(), 'Universo AMBA · no alcanza el hueco', getVar('--plum'), rows));
+    },
+  });
+
+  function getVar(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
+  // ---------- red vial: areas de servicio (paso 6) ----------
+  const redServiceAreasLayer = L.geoJSON(DATA.areasServicioRed, {
+    style: function (f) {
+      const esUnaj = f.properties.nombre === 'UNAJ';
+      return { color: esUnaj ? getVar('--brick') : getVar('--buffer-line'), weight: esUnaj ? 0 : 1, fillColor: esUnaj ? 'transparent' : getVar('--buffer-line'), fillOpacity: esUnaj ? 0 : .16 };
+    },
+    onEachFeature: function (f, layer) {
+      layer.bindPopup(popHTML(NOMBRES_LARGOS[f.properties.nombre] || f.properties.nombre, 'Área de servicio · red vial, 5 km recorridos', getVar('--buffer-line'), [['Universidad', f.properties.nombre]]));
+    },
+  });
+
+  // ---------- sensibilidad al radio: hueco dinámico + circulos dinamicos ----------
+  const RADII = SENSIBILIDAD.map(function (r) { return r.radio_km; });
+  const huecosPorRadio = {};
+  DATA.huecosRadio.features.forEach(function (f) { huecosPorRadio[f.properties.radio_km] = f; });
+
+  const huecoRadioLayer = L.geoJSON(huecosPorRadio[RADII[8]], {
+    style: function () { return { color: getVar('--brick'), weight: 2, fillColor: getVar('--brick'), fillOpacity: .32 }; },
+  });
+
+  const univPoints = DATA.universidades.features.map(function (f) {
+    return { nombre: f.properties.nombre, rol: f.properties.rol, latlng: [f.geometry.coordinates[1], f.geometry.coordinates[0]] };
+  });
+  const radiusCircleGroup = L.layerGroup(univPoints.map(function (u) {
+    return L.circle(u.latlng, {
+      radius: RADII[8] * 1000,
+      color: u.rol === 'objetivo' ? getVar('--brick') : getVar('--buffer-line'),
+      weight: u.rol === 'objetivo' ? 2 : 1.1,
+      fill: false, dashArray: u.rol === 'objetivo' ? null : '3,4',
+    });
+  }));
+
+  function setRadio(idx) {
+    const r = RADII[idx];
+    const row = SENSIBILIDAD[idx];
+    huecoRadioLayer.clearLayers();
+    huecoRadioLayer.addData(huecosPorRadio[r]);
+    radiusCircleGroup.eachLayer(function (c, i) { c.setRadius(r * 1000); });
+    document.getElementById('radioReadoutR').textContent = fmt(r, 1) + ' km';
+    document.getElementById('radioReadoutStats').innerHTML = fmt(row.area_hueco_km2, 2) + ' km²<br>' + fmt(row.poblacion_hueco) + ' hab';
+  }
+
+  const radioBoundsAll = L.geoJSON(DATA.huecosRadio).getBounds();
+
+  // ---------- recorrido narrado: pasos ----------
+  function clearStoryLayers() {
+    [buffersLayer, huecoLayer, huecoRedLayer, radiosLayer, renabapLayer,
+     universidadesLayer, universoLayer, redServiceAreasLayer, huecoRadioLayer,
+     radiusCircleGroup].forEach(function (l) { map.removeLayer(l); });
+  }
+
+  const boundsBuffers = L.geoJSON(DATA.buffers).getBounds();
+  const boundsHueco = L.geoJSON(DATA.hueco).getBounds();
+  const boundsUniverso = L.geoJSON(DATA.universo).getBounds().extend(boundsBuffers);
+
+  const STEP_FN = [
+    function () { clearStoryLayers(); universidadesLayer.addTo(map); map.flyToBounds(boundsUniverso, { padding: [30, 30], duration: 1.1 }); },
+    function () { clearStoryLayers(); buffersLayer.addTo(map); universidadesLayer.addTo(map); map.flyToBounds(boundsBuffers, { padding: [24, 24], duration: 1.1 }); },
+    function () { clearStoryLayers(); buffersLayer.addTo(map); huecoLayer.addTo(map); universidadesLayer.addTo(map); map.flyToBounds(boundsBuffers, { padding: [24, 24], duration: 1.1 }); },
+    function () { clearStoryLayers(); huecoLayer.addTo(map); radiosLayer.addTo(map); universidadesLayer.addTo(map); map.flyToBounds(boundsHueco, { padding: [16, 16], duration: 1.1 }); },
+    function () { clearStoryLayers(); radiusCircleGroup.addTo(map); huecoRadioLayer.addTo(map); setRadio(Number(document.getElementById('radioSlider').value)); map.flyToBounds(radioBoundsAll, { padding: [20, 20], duration: 1.1 }); },
+    function () { clearStoryLayers(); huecoLayer.addTo(map); renabapLayer.addTo(map); universidadesLayer.addTo(map); map.flyToBounds(boundsHueco, { padding: [16, 16], duration: 1.1 }); },
+    function () { clearStoryLayers(); huecoLayer.addTo(map); redServiceAreasLayer.addTo(map); huecoRedLayer.addTo(map); universidadesLayer.addTo(map); map.flyToBounds(boundsBuffers, { padding: [24, 24], duration: 1.1 }); },
+    function () { clearStoryLayers(); huecoLayer.addTo(map); universoLayer.addTo(map); universidadesLayer.addTo(map); map.flyToBounds(boundsUniverso, { padding: [30, 30], duration: 1.1 }); },
+    function () { clearStoryLayers(); huecoLayer.addTo(map); radiosLayer.addTo(map); universidadesLayer.addTo(map); map.flyToBounds(boundsHueco, { padding: [16, 16], duration: 1.1 }); },
+    function () { /* outro: conserva el encuadre del paso anterior */ },
+  ];
+
+  const stepEls = Array.prototype.slice.call(document.querySelectorAll('.step'));
+  const rail = document.getElementById('progressRail');
+  stepEls.forEach(function (el, i) {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.title = 'Paso ' + i;
+    dot.addEventListener('click', function () { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+    rail.appendChild(dot);
+  });
+  const dots = Array.prototype.slice.call(rail.children);
+
+  let activeStep = -1;
+  function activateStep(i) {
+    if (i === activeStep) return;
+    activeStep = i;
+    stepEls.forEach(function (el, k) { el.classList.toggle('active', k === i); });
+    dots.forEach(function (d, k) { d.classList.toggle('active', k === i); });
+    STEP_FN[i]();
+  }
+
+  const storyEl = document.getElementById('story');
+  const io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        activateStep(Number(entry.target.getAttribute('data-step')));
+      }
+    });
+  }, { root: storyEl, rootMargin: '-42% 0px -42% 0px', threshold: 0 });
+  stepEls.forEach(function (el) { io.observe(el); });
+
+  document.getElementById('radioSlider').addEventListener('input', function (e) {
+    setRadio(Number(e.target.value));
+  });
+
+  // ---------- explorar libremente ----------
+  buildLegend();
+  const appEl = document.getElementById('app');
+  const allBounds = L.geoJSON(DATA.buffers).getBounds();
+
+  function enterExplore() {
+    appEl.classList.remove('mode-story');
+    appEl.classList.add('mode-explore');
+    clearStoryLayers();
+    buffersLayer.addTo(map); huecoLayer.addTo(map); radiosLayer.addTo(map);
+    renabapLayer.addTo(map); universidadesLayer.addTo(map);
+    document.querySelectorAll('.layer-row input').forEach(function (cb) {
+      const key = cb.closest('.layer-row').getAttribute('data-layer');
+      cb.checked = !!(key === 'hueco' || key === 'buffers' || key === 'radios' || key === 'renabap' || key === 'universidades');
+    });
+    map.flyToBounds(allBounds, { padding: [24, 24], duration: 1 });
+  }
+  function enterStory() {
+    appEl.classList.remove('mode-explore');
+    appEl.classList.add('mode-story');
+    if (checkMode) toggleCheckMode();
+    storyEl.scrollTo({ top: 0, behavior: 'auto' });
+    activeStep = -1;
+    activateStep(0);
+  }
+
+  // ---------- comparador lado a lado ----------
+  let compareInit = false;
+  let mapCL, mapCR;
+  function initCompareMaps() {
+    const opts = { zoomControl: false, attributionControl: false, minZoom: 10, maxZoom: 17 };
+    mapCL = L.map('mapCompareLeft', opts);
+    mapCR = L.map('mapCompareRight', opts);
+    buildBasemap(mapCL);
+    buildBasemap(mapCR);
+
+    L.geoJSON(DATA.buffers, {
+      style: function (f) {
+        const esObjetivo = f.properties.rol === 'objetivo';
+        return { color: esObjetivo ? getVar('--brick') : getVar('--buffer-line'), weight: esObjetivo ? 1.6 : 1, fill: false, dashArray: esObjetivo ? null : '3,4' };
+      },
+    }).addTo(mapCL);
+    L.geoJSON(DATA.hueco, {
+      style: function () { return { color: getVar('--brick'), weight: 2, fillColor: getVar('--brick'), fillOpacity: .42 }; },
+    }).addTo(mapCL);
+    L.geoJSON(DATA.universidades, {
+      pointToLayer: function (f, latlng) {
+        const esObjetivo = f.properties.rol === 'objetivo';
+        return L.circleMarker(latlng, { radius: esObjetivo ? 6 : 4.5, color: esObjetivo ? getVar('--brick') : getVar('--ink'), weight: 1.6, fillColor: esObjetivo ? getVar('--brick') : getVar('--ink'), fillOpacity: .85 });
+      },
+    }).addTo(mapCL);
+
+    L.geoJSON(DATA.areasServicioRed, {
+      style: function (f) {
+        const esUnaj = f.properties.nombre === 'UNAJ';
+        return { color: esUnaj ? 'transparent' : getVar('--buffer-line'), weight: esUnaj ? 0 : 1, fillColor: getVar('--buffer-line'), fillOpacity: esUnaj ? 0 : .18 };
+      },
+    }).addTo(mapCR);
+    L.geoJSON(DATA.huecoRed, {
+      style: function () { return { color: getVar('--brick'), weight: 2, fillColor: getVar('--brick'), fillOpacity: .42 }; },
+    }).addTo(mapCR);
+    L.geoJSON(DATA.universidades, {
+      pointToLayer: function (f, latlng) {
+        const esObjetivo = f.properties.rol === 'objetivo';
+        return L.circleMarker(latlng, { radius: esObjetivo ? 6 : 4.5, color: esObjetivo ? getVar('--brick') : getVar('--ink'), weight: 1.6, fillColor: esObjetivo ? getVar('--brick') : getVar('--ink'), fillOpacity: .85 });
+      },
+    }).addTo(mapCR);
+
+    let syncing = false;
+    function sync(src, dst) {
+      return function () {
+        if (syncing) return;
+        syncing = true;
+        dst.setView(src.getCenter(), src.getZoom(), { animate: false });
+        syncing = false;
+      };
+    }
+    mapCL.on('move zoom', sync(mapCL, mapCR));
+    mapCR.on('move zoom', sync(mapCR, mapCL));
+
+    // ---- divisor arrastrable ----
+    const view = document.getElementById('compareView');
+    const divider = document.getElementById('compareDivider');
+    const handle = document.getElementById('compareHandle');
+    function setSplit(pct) {
+      pct = Math.max(4, Math.min(96, pct));
+      document.getElementById('mapCompareRight').style.clipPath = 'inset(0 0 0 ' + pct + '%)';
+      divider.style.left = pct + '%';
+      handle.style.left = pct + '%';
+    }
+    let dragging = false;
+    function pctFromEvent(e) {
+      const rect = view.getBoundingClientRect();
+      const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+      return (x / rect.width) * 100;
+    }
+    function onDown(e) { dragging = true; e.preventDefault(); }
+    function onMove(e) { if (dragging) setSplit(pctFromEvent(e)); }
+    function onUp() { dragging = false; }
+    [divider, handle].forEach(function (el) {
+      el.addEventListener('mousedown', onDown);
+      el.addEventListener('touchstart', onDown, { passive: false });
+    });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: false });
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+    setSplit(50);
+  }
+
+  function enterCompare() {
+    appEl.classList.remove('mode-explore');
+    appEl.classList.add('mode-compare');
+    if (checkMode) toggleCheckMode();
+    if (!compareInit) {
+      compareInit = true;
+      initCompareMaps();
+    }
+    // el mismo patron de espera que el mapa principal: el contenedor recien
+    // paso a display:block, y sin medidas reales fitBounds calcula NaN.
+    whenSized(function () {
+      mapCL.invalidateSize(); mapCR.invalidateSize();
+      mapCL.fitBounds(boundsHueco, { padding: [50, 50] });
+      mapCR.setView(mapCL.getCenter(), mapCL.getZoom(), { animate: false });
+    }, 0, mapCL);
+  }
+  function exitCompare() {
+    appEl.classList.remove('mode-compare');
+    appEl.classList.add('mode-explore');
+  }
+
+  // ---------- ¿vivis en el hueco? ----------
+  function pointInRing(lat, lng, ring) {
+    let inside = false;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const xi = ring[i][0], yi = ring[i][1];
+      const xj = ring[j][0], yj = ring[j][1];
+      const cruza = ((yi > lat) !== (yj > lat)) &&
+        (lng < (xj - xi) * (lat - yi) / (yj - yi) + xi);
+      if (cruza) inside = !inside;
+    }
+    return inside;
+  }
+  function pointInPolygonGeom(lat, lng, geom) {
+    if (!geom) return false;
+    if (geom.type === 'Polygon') {
+      if (!pointInRing(lat, lng, geom.coordinates[0])) return false;
+      for (let k = 1; k < geom.coordinates.length; k++) {
+        if (pointInRing(lat, lng, geom.coordinates[k])) return false;
+      }
+      return true;
+    }
+    if (geom.type === 'MultiPolygon') {
+      return geom.coordinates.some(function (poly) {
+        if (!pointInRing(lat, lng, poly[0])) return false;
+        for (let k = 1; k < poly.length; k++) {
+          if (pointInRing(lat, lng, poly[k])) return false;
+        }
+        return true;
+      });
+    }
+    return false;
+  }
+  function pointInFC(lat, lng, fc) {
+    return fc.features.some(function (f) { return pointInPolygonGeom(lat, lng, f.geometry); });
+  }
+
+  let checkMode = false, checkMarker = null;
+  const checkBtn = document.getElementById('checkBtn');
+  const checkHint = document.getElementById('checkHint');
+  const checkResult = document.getElementById('checkResult');
+  const checkBody = document.getElementById('checkBody');
+
+  function toggleCheckMode() {
+    checkMode = !checkMode;
+    checkBtn.classList.toggle('active', checkMode);
+    map.getContainer().style.cursor = checkMode ? 'crosshair' : '';
+    checkHint.classList.toggle('show', checkMode);
+    if (!checkMode) {
+      checkResult.classList.remove('show');
+      if (checkMarker) { map.removeLayer(checkMarker); checkMarker = null; }
+    }
+  }
+  function closeCheck() {
+    checkResult.classList.remove('show');
+    if (checkMarker) { map.removeLayer(checkMarker); checkMarker = null; }
+  }
+
+  function runCheck(latlng) {
+    map.closePopup();
+    const lat = latlng.lat, lng = latlng.lng;
+    const dentroHueco = pointInFC(lat, lng, DATA.hueco);
+    const dentroHuecoRed = pointInFC(lat, lng, DATA.huecoRed);
+    const dentroRenabap = pointInFC(lat, lng, DATA.renabap);
+
+    const unaj = univPoints.find(function (u) { return u.rol === 'objetivo'; });
+    const distUnaj = map.distance(latlng, L.latLng(unaj.latlng)) / 1000;
+
+    const cobertura = [];
+    let masCercanaNombre = null, masCercanaDist = Infinity;
+    univPoints.forEach(function (u) {
+      if (u.rol === 'objetivo') return;
+      const d = map.distance(latlng, L.latLng(u.latlng)) / 1000;
+      if (d <= 5) cobertura.push({ nombre: u.nombre, dist: d });
+      if (d < masCercanaDist) { masCercanaDist = d; masCercanaNombre = u.nombre; }
+    });
+    cobertura.sort(function (a, b) { return a.dist - b.dist; });
+
+    if (checkMarker) map.removeLayer(checkMarker);
+    checkMarker = L.circleMarker(latlng, {
+      radius: 9, color: getVar('--ink'), weight: 2.5,
+      fillColor: getVar('--brick'), fillOpacity: .92,
+    }).addTo(map);
+
+    let headline, headlineClass;
+    if (dentroHueco) {
+      headline = '✅ Sí — acá la UNAJ es la única universidad nacional a 5 km.';
+      headlineClass = 'yes';
+    } else if (distUnaj <= 5) {
+      headline = '🔶 La UNAJ llega, pero no es la única.';
+      headlineClass = 'no';
+    } else {
+      headline = '⭕ Estás fuera del radio de 5 km de la UNAJ.';
+      headlineClass = 'no';
+    }
+
+    let html = '<div class="check-headline ' + headlineClass + '">' + headline + '</div>';
+    html += '<div class="check-row"><span class="k">Distancia a la UNAJ</span><span class="v">' + fmt(distUnaj, 2) + ' km</span></div>';
+    html += '<div class="check-row"><span class="k">Universidad nacional más cercana (de las otras 5)</span><span class="v">' + (masCercanaNombre || '—') + ' · ' + fmt(masCercanaDist, 2) + ' km</span></div>';
+    if (cobertura.length) {
+      html += '<div class="check-row"><span class="k">También te cubren en 5 km</span><span class="v">' + cobertura.map(function (c) { return c.nombre; }).join(', ') + '</span></div>';
+    }
+    html += '<div class="check-row"><span class="k">Por la red vial real (no en línea recta)</span><span class="v">' + (dentroHuecoRed ? 'también exclusivo UNAJ' : 'no exclusivo') + '</span></div>';
+    if (dentroRenabap) {
+      html += '<div class="check-note">📍 Este punto cae dentro de un barrio popular relevado por el RENABAP.</div>';
+    }
+    checkBody.innerHTML = html;
+    checkResult.classList.add('show');
+  }
+
+  map.on('click', function (e) { if (checkMode) runCheck(e.latlng); });
+  checkBtn.addEventListener('click', toggleCheckMode);
+  document.getElementById('checkClose').addEventListener('click', closeCheck);
+
+  document.getElementById('exploreBtn').addEventListener('click', enterExplore);
+  document.getElementById('replayBtn').addEventListener('click', enterStory);
+  document.getElementById('compareBtn').addEventListener('click', enterCompare);
+  document.getElementById('compareBackBtn').addEventListener('click', exitCompare);
+
+  const LAYERS = {
+    hueco: huecoLayer, huecoRed: huecoRedLayer, buffers: buffersLayer,
+    radios: radiosLayer, renabap: renabapLayer,
+    universidades: universidadesLayer, universo: universoLayer,
+  };
+
+  document.querySelectorAll('.layer-row').forEach(function (row) {
+    const key = row.getAttribute('data-layer');
+    const cb = row.querySelector('input');
+    function sync() {
+      if (cb.checked) { LAYERS[key].addTo(map); } else { map.removeLayer(LAYERS[key]); }
+    }
+    cb.addEventListener('change', sync);
+    row.addEventListener('click', function (e) {
+      if (e.target !== cb) { cb.checked = !cb.checked; sync(); }
+    });
+  });
+
+  document.getElementById('menuBtn').addEventListener('click', function () {
+    document.getElementById('panel').classList.toggle('open');
+  });
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+    radiosLayer.eachLayer(function (l) { l.setStyle({ fillColor: colorFor(l.feature.properties.densidad_hab_km2), color: isDark() ? '#0d1615' : '#ffffff' }); });
+    buildLegend();
+  });
+
+  // Arranca en modo historia, paso 0. Se espera a que el contenedor tenga
+  // medidas reales antes de tocar el mapa: el CSS (Leaflet + Google Fonts,
+  // bloqueante) puede no estar aplicado todavia cuando corre este script, y
+  // sin layout resuelto fitBounds/flyToBounds calculan NaN. Se usa setTimeout
+  // (no requestAnimationFrame) porque rAF no dispara si la pestana esta en
+  // segundo plano o sin compositar, y esto tiene que funcionar igual ahi.
+  function whenSized(cb, tries, ofMap) {
+    tries = tries || 0;
+    const c = (ofMap || map).getContainer();
+    if ((c.clientWidth > 0 && c.clientHeight > 0) || tries > 60) {
+      cb();
+    } else {
+      setTimeout(function () { whenSized(cb, tries + 1, ofMap); }, 30);
+    }
+  }
+  whenSized(function () {
+    map.invalidateSize();
+    map.fitBounds(allBounds, { padding: [24, 24] });
+    activateStep(0);
+  });
+})();
+</script>

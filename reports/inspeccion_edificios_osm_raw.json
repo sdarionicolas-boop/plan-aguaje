@@ -1,0 +1,62 @@
+{
+  "archivo": "data\\input\\edificios_osm_raw.gpkg",
+  "capa": "edificios",
+  "n_features": 10327,
+  "crs": "EPSG:4326",
+  "crs_nombre": "WGS 84",
+  "crs_proyectado": false,
+  "unidades": "degree",
+  "tipos_geometria": {
+    "MultiPolygon": 10327
+  },
+  "bbox": [
+    -58.503468,
+    -34.95082,
+    -57.885328,
+    -34.6661
+  ],
+  "n_campos": 7,
+  "campos_top20": {
+    "element_type": {
+      "dtype": "object",
+      "no_nulos": 10327,
+      "pct_lleno": 100.0
+    },
+    "osmid": {
+      "dtype": "int64",
+      "no_nulos": 10327,
+      "pct_lleno": 100.0
+    },
+    "building": {
+      "dtype": "object",
+      "no_nulos": 10327,
+      "pct_lleno": 100.0
+    },
+    "addr_street": {
+      "dtype": "object",
+      "no_nulos": 4120,
+      "pct_lleno": 39.9
+    },
+    "name": {
+      "dtype": "object",
+      "no_nulos": 2999,
+      "pct_lleno": 29.0
+    },
+    "building_levels": {
+      "dtype": "object",
+      "no_nulos": 1657,
+      "pct_lleno": 16.0
+    },
+    "amenity": {
+      "dtype": "object",
+      "no_nulos": 954,
+      "pct_lleno": 9.2
+    }
+  },
+  "calidad": {
+    "geometrias_nulas": 0,
+    "geometrias_vacias": 0,
+    "geometrias_invalidas": 0,
+    "geometrias_duplicadas": 0
+  }
+}
